@@ -1,5 +1,4 @@
-﻿using DAL.Entities;
-using System.IO;
+﻿using System.Collections.Generic;
 
 namespace DAL.Entities.Abstractions
 {
@@ -9,7 +8,8 @@ namespace DAL.Entities.Abstractions
         /// Загрузить записи из файла
         /// </summary>
         /// <param name="file">Путь до файла</param>
-        void LoadFromFile(string file);
+        /// <returns>Коллекция ресурсов</returns>
+        ICollection<Resource> LoadFromFile(string file);
 
         /// <summary>
         /// Загрузить записи в файл

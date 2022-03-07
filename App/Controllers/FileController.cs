@@ -24,8 +24,7 @@ namespace App.Controllers
                 r.Id = _resources.Count + 1;
                 _resources.Add(r);
                 UpdateResourceHandler?.Invoke(this, _resources);
-            },
-            () => { });
+            });
         }
 
         public IEnumerable<Resource> GetAllRecord()

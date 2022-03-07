@@ -29,12 +29,6 @@ namespace App.Controllers.Abstractions
         void UpdateRecord(int id);
 
         /// <summary>
-        /// Получить все записи
-        /// </summary>
-        /// <returns>Перечисление ресурсов</returns>
-        IEnumerable<Resource> GetAllRecord();
-
-        /// <summary>
         /// Загрузить записи из файла
         /// </summary>
         /// <param name="path">Ссылка на файл</param>

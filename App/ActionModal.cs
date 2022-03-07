@@ -31,11 +31,6 @@ namespace App
             Close();
         }
 
-        public Resource GetResult()
-        {
-            return _record;
-        }
-
         private void Execute(FileAction action, Resource record)
         {
             switch (action)
@@ -64,7 +59,6 @@ namespace App
 
             dateTimePicker1.Value = accessDate;
         }
-
 
         private void OKBtn_Click(object sender, EventArgs e)
         {

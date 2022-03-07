@@ -1,11 +1,11 @@
 ﻿using DAL.Entities.Abstractions;
-using System.IO;
+using System.Collections.Generic;
 
 namespace DAL.Entities
 {
     class PlainTextProvider : IFileProvider
     {
-        public void LoadFromFile(string file)
+        public ICollection<Resource> LoadFromFile(string file)
         {
             throw new System.NotImplementedException();
         }

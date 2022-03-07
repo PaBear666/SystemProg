@@ -1,11 +1,12 @@
 ﻿using DAL.Entities.Abstractions;
+using System.Collections.Generic;
 using System.IO;
 
 namespace DAL.Entities
 {
     class CSVProvider : IFileProvider
     {
-        public void LoadFromFile(string file)
+        public ICollection<Resource> LoadFromFile(string file)
         {
             throw new System.NotImplementedException();
         }
