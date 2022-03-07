@@ -98,9 +98,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OwnLib\OwnLib.csproj">
+    <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{5f49ae10-df01-4e2b-9ba5-4e4e36977dbf}</Project>
-      <Name>OwnLib</Name>
+      <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

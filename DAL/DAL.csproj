@@ -7,8 +7,8 @@
     <ProjectGuid>{5F49AE10-DF01-4E2B-9BA5-4E4E36977DBF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OwnLib</RootNamespace>
-    <AssemblyName>OwnLib</AssemblyName>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\Abstractions\IFileProvider.cs" />
+    <Compile Include="Entities\CSVProvider.cs" />
+    <Compile Include="Entities\PlainTextProvider.cs" />
     <Compile Include="Entities\Resource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

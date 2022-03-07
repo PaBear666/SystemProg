@@ -15,7 +15,7 @@ namespace App
             Execute(action, record);
         }
 
-        public void ShowDialog(Action<Resource> ok, Action<Resource> cancel)
+        public void ShowDialog(Action<Resource> ok, Action cancel = null)
         {
             ShowDialog();
             switch (DialogResult)
@@ -25,7 +25,7 @@ namespace App
                     break;
 
                 case DialogResult.Cancel:
-                    cancel(_record);
+                    cancel?.Invoke();
                     break;
             }
             Close();
