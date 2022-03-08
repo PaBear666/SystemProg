@@ -19,6 +19,7 @@ namespace App.Controllers
         {
             _resources = new List<Resource>();
         }
+
         public void AddRecord(Resource resource)
         {
             resource.Id = _resources.Count + 1;
@@ -49,16 +50,24 @@ namespace App.Controllers
             _fileProvider.UnLoadToFile(path, _resources.ToArray());
         }
 
-        public void UpdateRecord(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public string SetFileProvider(IFileProvider fileProvider)
         {
             _fileProvider = fileProvider;
             return _fileProvider.PathExtension;
         }
 
+        public Resource GetById(int id)
+        {
+            return _resources.FirstOrDefault(r => r.Id == id);
+        }
+
+        public void UpdateRecord(int id, Resource newResource)
+        {
+            var resource = GetById(id);
+            resource.Address = newResource.Address;
+            resource.AccessDate = newResource.AccessDate;
+            resource.IsOpen = newResource.IsOpen;
+            UpdateResourceHandler?.Invoke(this, _resources);
+        }
     }
 }

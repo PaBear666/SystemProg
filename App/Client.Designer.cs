@@ -149,6 +149,7 @@ namespace App
             // 
             // updateRecordBtn
             // 
+            this.updateRecordBtn.Enabled = false;
             this.updateRecordBtn.Location = new System.Drawing.Point(69, 127);
             this.updateRecordBtn.Name = "updateRecordBtn";
             this.updateRecordBtn.Size = new System.Drawing.Size(127, 23);
@@ -180,7 +181,7 @@ namespace App
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.Size = new System.Drawing.Size(443, 366);
             this.dataGrid.TabIndex = 1;
-            this.dataGrid.SelectionChanged += new System.EventHandler(this.DeleteBtnEnable);
+            this.dataGrid.SelectionChanged += new System.EventHandler(this.SelectedRowEvent);
             // 
             // Id
             // 

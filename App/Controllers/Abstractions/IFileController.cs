@@ -31,10 +31,11 @@ namespace App.Controllers.Abstractions
         void RemoveRecord(int id);
 
         /// <summary>
-        /// Удалить запись
+        /// Обновить запись
         /// </summary>
         /// <param name="id">Идентификатор записи</param>
-        void UpdateRecord(int id);
+        /// <param name="newResource">Измененый ресурс</param>
+        void UpdateRecord(int id, Resource newResource);
 
         /// <summary>
         /// Загрузить записи из файла
@@ -47,5 +48,12 @@ namespace App.Controllers.Abstractions
         /// </summary>
         /// <param name="path">Ссылка на файл</param>
         void UnloadToFile(string path);
+
+        /// <summary>
+        /// Получить запись по идентификатору
+        /// </summary>
+        /// <param name="id">Идентификатор записи</param>
+        /// <returns>Ресурс</returns>
+        Resource GetById(int id);
     }
 }

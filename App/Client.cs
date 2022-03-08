@@ -28,10 +28,7 @@ namespace App
         private void AddRecordBtn_Click(object sender, EventArgs e)
         {
             var modal = new ActionModal(FileAction.Add, null);
-            modal.ShowDialog(r =>
-            {            
-                _fileController.AddRecord(r);
-            });
+            modal.ShowDialog(r => _fileController.AddRecord(r));
         }
 
         private void DeleteRecordBtn_Click(object sender, EventArgs e)
@@ -41,12 +38,17 @@ namespace App
 
         private void UpdateRecordBtn_Click(object sender, EventArgs e)
         {
-             
+            var id = (int)dataGrid.SelectedRows[0].Cells[0].Value;
+            var resource = _fileController.GetById(id);
+            var modal = new ActionModal(FileAction.Update, resource);
+            modal.ShowDialog(r => _fileController.UpdateRecord(id, r));
         }
 
-        private void DeleteBtnEnable(object sender, EventArgs e)
+        private void SelectedRowEvent(object sender, EventArgs e)
         {
-            deleteRecordBtn.Enabled = dataGrid.SelectedRows.Count == 1;
+            var selectedOne = dataGrid.SelectedRows.Count == 1;
+            deleteRecordBtn.Enabled = selectedOne;
+            updateRecordBtn.Enabled = selectedOne;
         }
 
         private void UpdateTable(object sender, IList<Resource> resources)
