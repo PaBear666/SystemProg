@@ -12,6 +12,7 @@ namespace App
         private readonly IFileController _fileController;
         private readonly ILowLevelController _lowLevelContoller;
         private readonly IAnalyzerController _analyzerController;
+        private string _fileExtension;
         public Client()
         {         
             InitializeComponent();
@@ -54,11 +55,48 @@ namespace App
 
         #endregion
 
-
-
         #region Work with File
 
+        private void FileTypeCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+            var fileProvderStr = comboBox.SelectedItem as string;
+            switch (fileProvderStr)
+            {
+                case "Plain Text":
+                    _fileExtension = _fileController.SetFileProvider(new PlainTextProvider());
+                    break;
+                case "CSV":
+                    _fileExtension = _fileController.SetFileProvider(new CSVProvider());
+                    break;
+            }
+        }
 
+        private void EnableBtnWorkWithFile_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+            comboBox.SelectedIndexChanged -= EnableBtnWorkWithFile_SelectedIndexChanged;
+            loadFileBtn.Enabled = true;
+            unloadFileBtn.Enabled = true;
+        }
+        private void LoadFileBtn_Click(object sender, EventArgs e)
+        {
+            using(OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.Filter = $"All files of type|*.{_fileExtension}";
+                dialog.FilterIndex = 1;
+
+                if(dialog.ShowDialog() == DialogResult.OK)
+                {
+                    _fileController.LoadFromFile(dialog.FileName);
+                }
+            }
+        }
+
+        private void UnloadFileBtn_Click(object sender, EventArgs e)
+        {
+
+        }
 
         #endregion
 

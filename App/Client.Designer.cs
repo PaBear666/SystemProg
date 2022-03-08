@@ -101,24 +101,30 @@ namespace App
             this.fileTypeCB.Name = "fileTypeCB";
             this.fileTypeCB.Size = new System.Drawing.Size(220, 21);
             this.fileTypeCB.TabIndex = 2;
+            this.fileTypeCB.SelectedIndexChanged += new System.EventHandler(this.FileTypeCB_SelectedIndexChanged);
+            this.fileTypeCB.SelectedIndexChanged += new System.EventHandler(this.EnableBtnWorkWithFile_SelectedIndexChanged);
             // 
             // loadFileBtn
             // 
+            this.loadFileBtn.Enabled = false;
             this.loadFileBtn.Location = new System.Drawing.Point(67, 81);
             this.loadFileBtn.Name = "loadFileBtn";
             this.loadFileBtn.Size = new System.Drawing.Size(129, 23);
             this.loadFileBtn.TabIndex = 3;
             this.loadFileBtn.Text = "Загрузить в файл";
             this.loadFileBtn.UseVisualStyleBackColor = true;
+            this.loadFileBtn.Click += new System.EventHandler(this.UnloadFileBtn_Click);
             // 
             // unloadFileBtn
             // 
+            this.unloadFileBtn.Enabled = false;
             this.unloadFileBtn.Location = new System.Drawing.Point(67, 133);
             this.unloadFileBtn.Name = "unloadFileBtn";
             this.unloadFileBtn.Size = new System.Drawing.Size(129, 23);
             this.unloadFileBtn.TabIndex = 4;
             this.unloadFileBtn.Text = "Загрузить из файла";
-            this.unloadFileBtn.UseVisualStyleBackColor = true;
+            this.unloadFileBtn.UseVisualStyleBackColor = true; 
+            this.unloadFileBtn.Click += new System.EventHandler(this.LoadFileBtn_Click);
             // 
             // gropBox1
             // 

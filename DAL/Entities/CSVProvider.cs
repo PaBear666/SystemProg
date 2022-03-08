@@ -4,8 +4,10 @@ using System.IO;
 
 namespace DAL.Entities
 {
-    class CSVProvider : IFileProvider
+    public class CSVProvider : IFileProvider
     {
+        public string PathExtension => throw new System.NotImplementedException();
+
         public ICollection<Resource> LoadFromFile(string file)
         {
             throw new System.NotImplementedException();

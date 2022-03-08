@@ -1,4 +1,5 @@
 ﻿using DAL.Entities;
+using DAL.Entities.Abstractions;
 using System;
 using System.Collections.Generic;
 
@@ -10,6 +11,13 @@ namespace App.Controllers.Abstractions
         /// Обработчик изменения списка
         /// </summary>
         event EventHandler<IList<Resource>> UpdateResourceHandler;
+
+        /// <summary>
+        /// Установить провайдер для работы с файлом
+        /// </summary>
+        /// <param name="fileProvider">Провайдер</param>
+        /// <returns>Тип расширения</returns>
+        string SetFileProvider(IFileProvider fileProvider);
 
         /// <summary>
         /// Добавить запись

@@ -1,14 +1,18 @@
 ﻿using App.Controllers.Abstractions;
 using DAL.Entities;
-using System.Collections;
 using System.Collections.Generic;
 using System;
+using DAL.Entities.Abstractions;
+using System.Linq;
 
 namespace App.Controllers
 {
     internal class FileController : IFileController
     {
         private readonly IList<Resource> _resources;
+
+        private IFileProvider _fileProvider;
+
         public event EventHandler<IList<Resource>> UpdateResourceHandler;
 
         public FileController()
@@ -34,7 +38,13 @@ namespace App.Controllers
 
         public void LoadFromFile(string path)
         {
-            throw new System.NotImplementedException();
+            var resources = _fileProvider.LoadFromFile(path);
+            _resources.Clear();
+            foreach (var resource in resources)
+            {
+                _resources.Add(resource);
+            }
+            UpdateResourceHandler?.Invoke(this, _resources);
         }
 
         public void RemoveRecord(int id)
@@ -50,6 +60,12 @@ namespace App.Controllers
         public void UpdateRecord(int id)
         {
             throw new System.NotImplementedException();
+        }
+
+        public string SetFileProvider(IFileProvider fileProvider)
+        {
+            _fileProvider = fileProvider;
+            return _fileProvider.PathExtension;
         }
     }
 }
