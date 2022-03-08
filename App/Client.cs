@@ -27,7 +27,7 @@ namespace App
 
         private void AddRecordBtn_Click(object sender, EventArgs e)
         {
-            var modal = new ActionModal(FileAction.Add, null);
+            var modal = new ActionModal(ModalAction.Add, null);
             modal.ShowDialog(r => _fileController.AddRecord(r));
         }
 
@@ -40,7 +40,7 @@ namespace App
         {
             var id = (int)dataGrid.SelectedRows[0].Cells[0].Value;
             var resource = _fileController.GetById(id);
-            var modal = new ActionModal(FileAction.Update, resource);
+            var modal = new ActionModal(ModalAction.Update, resource);
             modal.ShowDialog(r => _fileController.UpdateRecord(id, r));
         }
 

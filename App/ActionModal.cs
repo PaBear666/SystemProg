@@ -8,7 +8,7 @@ namespace App
     {
         private Resource _record;
 
-        public ActionModal(FileAction action, Resource record)
+        public ActionModal(ModalAction action, Resource record)
         {
             InitializeComponent();
             _record = record;
@@ -31,14 +31,14 @@ namespace App
             Close();
         }
 
-        private void Execute(FileAction action, Resource record)
+        private void Execute(ModalAction action, Resource record)
         {
             switch (action)
             {
-                case FileAction.Add:
+                case ModalAction.Add:
                     InitFields(String.Empty, null, DateTime.Now);
                     break;
-                case FileAction.Update:
+                case ModalAction.Update:
                     InitFields(record.Address, record.IsOpen, record.AccessDate);
                     break;
             }

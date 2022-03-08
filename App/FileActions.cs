@@ -1,10 +1,9 @@
 ﻿
 namespace App
 {
-    public enum FileAction
+    public enum ModalAction
     {
         Add,
-        Delete,
         Update
     }
 }

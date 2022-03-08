@@ -102,6 +102,7 @@ namespace App
             this.fileTypeCB.Size = new System.Drawing.Size(220, 21);
             this.fileTypeCB.TabIndex = 2;
             this.fileTypeCB.SelectedIndexChanged += new System.EventHandler(this.EnableBtnWorkWithFile_SelectedIndexChanged);
+            this.fileTypeCB.SelectedIndexChanged += FileTypeCB_SelectedIndexChanged;
             // 
             // loadFileBtn
             // 
