@@ -22,7 +22,7 @@ namespace App.Controllers.Abstractions
         /// <summary>
         /// Добавить запись
         /// </summary>
-        void AddRecord();
+        void AddRecord(Resource resource);
 
         /// <summary>
         /// Удалить запись

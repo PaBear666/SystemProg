@@ -101,7 +101,6 @@ namespace App
             this.fileTypeCB.Name = "fileTypeCB";
             this.fileTypeCB.Size = new System.Drawing.Size(220, 21);
             this.fileTypeCB.TabIndex = 2;
-            this.fileTypeCB.SelectedIndexChanged += new System.EventHandler(this.FileTypeCB_SelectedIndexChanged);
             this.fileTypeCB.SelectedIndexChanged += new System.EventHandler(this.EnableBtnWorkWithFile_SelectedIndexChanged);
             // 
             // loadFileBtn
@@ -123,7 +122,7 @@ namespace App
             this.unloadFileBtn.Size = new System.Drawing.Size(129, 23);
             this.unloadFileBtn.TabIndex = 4;
             this.unloadFileBtn.Text = "Загрузить из файла";
-            this.unloadFileBtn.UseVisualStyleBackColor = true; 
+            this.unloadFileBtn.UseVisualStyleBackColor = true;
             this.unloadFileBtn.Click += new System.EventHandler(this.LoadFileBtn_Click);
             // 
             // gropBox1
@@ -160,6 +159,7 @@ namespace App
             // 
             // deleteRecordBtn
             // 
+            this.deleteRecordBtn.Enabled = false;
             this.deleteRecordBtn.Location = new System.Drawing.Point(67, 85);
             this.deleteRecordBtn.Name = "deleteRecordBtn";
             this.deleteRecordBtn.Size = new System.Drawing.Size(129, 23);
@@ -180,6 +180,7 @@ namespace App
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.Size = new System.Drawing.Size(443, 366);
             this.dataGrid.TabIndex = 1;
+            this.dataGrid.SelectionChanged += new System.EventHandler(this.DeleteBtnEnable);
             // 
             // Id
             // 

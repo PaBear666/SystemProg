@@ -19,21 +19,11 @@ namespace App.Controllers
         {
             _resources = new List<Resource>();
         }
-
-        public void AddRecord()
+        public void AddRecord(Resource resource)
         {
-            var modal = new ActionModal(FileAction.Add, null);
-            modal.ShowDialog(r =>
-            {
-                r.Id = _resources.Count + 1;
-                _resources.Add(r);
-                UpdateResourceHandler?.Invoke(this, _resources);
-            });
-        }
-
-        public IEnumerable<Resource> GetAllRecord()
-        {
-            throw new System.NotImplementedException();
+            resource.Id = _resources.Count + 1;
+            _resources.Add(resource);
+            UpdateResourceHandler?.Invoke(this, _resources);
         }
 
         public void LoadFromFile(string path)
@@ -49,12 +39,14 @@ namespace App.Controllers
 
         public void RemoveRecord(int id)
         {
-            throw new System.NotImplementedException();
+            var resource = _resources.FirstOrDefault(r => r.Id == id);
+            _resources.Remove(resource);
+            UpdateResourceHandler?.Invoke(this, _resources);
         }
 
         public void UnloadToFile(string path)
         {
-            throw new System.NotImplementedException();
+            _fileProvider.UnLoadToFile(path, _resources.ToArray());
         }
 
         public void UpdateRecord(int id)
@@ -67,5 +59,6 @@ namespace App.Controllers
             _fileProvider = fileProvider;
             return _fileProvider.PathExtension;
         }
+
     }
 }

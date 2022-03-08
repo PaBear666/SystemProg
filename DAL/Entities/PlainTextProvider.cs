@@ -1,6 +1,7 @@
 ﻿using DAL.Entities.Abstractions;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace DAL.Entities
 {
@@ -26,7 +27,19 @@ namespace DAL.Entities
 
         public void UnLoadToFile(string file, Resource[] resources)
         {
-            throw new System.NotImplementedException();
+            StringBuilder builder = new StringBuilder();
+            using (StreamWriter stream = new StreamWriter(file, false))
+            {
+                foreach (var resource in resources)
+                {
+                    builder.Append($"{resource.Id},");
+                    builder.Append($"{resource.Address},");
+                    builder.Append($"{resource.IsOpen},");
+                    builder.Append($"{resource.AccessDate}");
+                    stream.WriteLine(builder);
+                    builder.Clear();
+                }
+            }
         }
     }
 }

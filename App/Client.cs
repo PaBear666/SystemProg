@@ -4,6 +4,7 @@ using App.Controllers.Abstractions;
 using System;
 using DAL.Entities;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace App
 {
@@ -26,17 +27,26 @@ namespace App
 
         private void AddRecordBtn_Click(object sender, EventArgs e)
         {
-            _fileController.AddRecord();
+            var modal = new ActionModal(FileAction.Add, null);
+            modal.ShowDialog(r =>
+            {            
+                _fileController.AddRecord(r);
+            });
         }
 
         private void DeleteRecordBtn_Click(object sender, EventArgs e)
         {
-
+            _fileController.RemoveRecord((int)dataGrid.SelectedRows[0].Cells[0].Value);
         }
 
         private void UpdateRecordBtn_Click(object sender, EventArgs e)
         {
-            
+             
+        }
+
+        private void DeleteBtnEnable(object sender, EventArgs e)
+        {
+            deleteRecordBtn.Enabled = dataGrid.SelectedRows.Count == 1;
         }
 
         private void UpdateTable(object sender, IList<Resource> resources)
@@ -59,8 +69,7 @@ namespace App
 
         private void FileTypeCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var comboBox = sender as ComboBox;
-            var fileProvderStr = comboBox.SelectedItem as string;
+            var fileProvderStr = fileTypeCB.SelectedItem as string;
             switch (fileProvderStr)
             {
                 case "Plain Text":
@@ -74,8 +83,7 @@ namespace App
 
         private void EnableBtnWorkWithFile_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var comboBox = sender as ComboBox;
-            comboBox.SelectedIndexChanged -= EnableBtnWorkWithFile_SelectedIndexChanged;
+            fileTypeCB.SelectedIndexChanged -= EnableBtnWorkWithFile_SelectedIndexChanged;
             loadFileBtn.Enabled = true;
             unloadFileBtn.Enabled = true;
         }
@@ -95,7 +103,16 @@ namespace App
 
         private void UnloadFileBtn_Click(object sender, EventArgs e)
         {
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.Filter = $"All files of type|*.{_fileExtension}";
+                dialog.FilterIndex = 1;
 
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    _fileController.UnloadToFile(dialog.FileName);
+                }
+            }
         }
 
         #endregion
