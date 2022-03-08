@@ -8,12 +8,12 @@ namespace DAL.Entities
     {
         public string PathExtension => throw new System.NotImplementedException();
 
-        public ICollection<Resource> LoadFromFile(string file)
+        public ICollection<Resource> LoadFromFile(string path)
         {
             throw new System.NotImplementedException();
         }
 
-        public void UnLoadToFile(string file, Resource[] resources)
+        public void UnLoadToFile(string path, Resource[] resources)
         {
             throw new System.NotImplementedException();
         }

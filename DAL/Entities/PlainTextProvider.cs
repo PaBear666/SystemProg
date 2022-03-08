@@ -9,10 +9,10 @@ namespace DAL.Entities
     {
         public string PathExtension => "txt";
 
-        public ICollection<Resource> LoadFromFile(string file)
+        public ICollection<Resource> LoadFromFile(string path)
         {
             List<Resource> resources = new List<Resource>();
-            foreach (string line in File.ReadAllLines(file))
+            foreach (string line in File.ReadAllLines(path))
             {
                 var parameters = line.Split(new[] { ',' });
                 var resource = new Resource(
@@ -25,10 +25,10 @@ namespace DAL.Entities
             return resources;
         }
 
-        public void UnLoadToFile(string file, Resource[] resources)
+        public void UnLoadToFile(string path, Resource[] resources)
         {
             StringBuilder builder = new StringBuilder();
-            using (StreamWriter stream = new StreamWriter(file, false))
+            using (StreamWriter stream = new StreamWriter(path, false))
             {
                 foreach (var resource in resources)
                 {
