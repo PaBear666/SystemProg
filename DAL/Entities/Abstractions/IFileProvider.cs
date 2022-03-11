@@ -5,7 +5,7 @@ namespace DAL.Entities.Abstractions
     public interface IFileProvider
     {
         /// <summary>
-        /// Название расширения
+        /// Расширение файла
         /// </summary>
         string PathExtension { get; }
         /// <summary>

@@ -4,7 +4,7 @@ using App.Controllers.Abstractions;
 using System;
 using DAL.Entities;
 using System.Collections.Generic;
-using System.Linq;
+using App.infrastructure;
 
 namespace App
 {
@@ -17,7 +17,7 @@ namespace App
         public Client()
         {         
             InitializeComponent();
-            _fileController = new FileController();
+            _fileController = new FileController(new Logger());
             _fileController.UpdateResourceHandler += UpdateTable;
             _lowLevelContoller = new LowLevelContoller();
             _analyzerController = new AnalyzerController();

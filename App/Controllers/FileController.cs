@@ -4,19 +4,21 @@ using System.Collections.Generic;
 using System;
 using DAL.Entities.Abstractions;
 using System.Linq;
+using App.infrastructure;
 
 namespace App.Controllers
 {
     internal class FileController : IFileController
     {
         private readonly IList<Resource> _resources;
-
+        private readonly ILogger _logger;
         private IFileProvider _fileProvider;
 
         public event EventHandler<IList<Resource>> UpdateResourceHandler;
 
-        public FileController()
+        public FileController(ILogger logger)
         {
+            _logger = logger;
             _resources = new List<Resource>();
         }
 

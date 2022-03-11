@@ -102,7 +102,6 @@ namespace App
             this.fileTypeCB.Size = new System.Drawing.Size(220, 21);
             this.fileTypeCB.TabIndex = 2;
             this.fileTypeCB.SelectedIndexChanged += new System.EventHandler(this.EnableBtnWorkWithFile_SelectedIndexChanged);
-            this.fileTypeCB.SelectedIndexChanged += FileTypeCB_SelectedIndexChanged;
             // 
             // loadFileBtn
             // 
@@ -111,7 +110,7 @@ namespace App
             this.loadFileBtn.Name = "loadFileBtn";
             this.loadFileBtn.Size = new System.Drawing.Size(129, 23);
             this.loadFileBtn.TabIndex = 3;
-            this.loadFileBtn.Text = "Загрузить в файл";
+            this.loadFileBtn.Text = "Сохранить";
             this.loadFileBtn.UseVisualStyleBackColor = true;
             this.loadFileBtn.Click += new System.EventHandler(this.UnloadFileBtn_Click);
             // 
@@ -122,7 +121,7 @@ namespace App
             this.unloadFileBtn.Name = "unloadFileBtn";
             this.unloadFileBtn.Size = new System.Drawing.Size(129, 23);
             this.unloadFileBtn.TabIndex = 4;
-            this.unloadFileBtn.Text = "Загрузить из файла";
+            this.unloadFileBtn.Text = "Открыть";
             this.unloadFileBtn.UseVisualStyleBackColor = true;
             this.unloadFileBtn.Click += new System.EventHandler(this.LoadFileBtn_Click);
             // 
