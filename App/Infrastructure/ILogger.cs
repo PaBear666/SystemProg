@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace App.infrastructure
+namespace App.Infrastructure
 {
-    interface ILogger
+    public interface ILogger
     {
         void LogError(Exception e, string message = null);
     }

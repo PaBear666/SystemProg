@@ -55,10 +55,8 @@
     <Compile Include="ActionModal.Designer.cs">
       <DependentUpon>ActionModal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\Abstractions\IActionModalController.cs" />
     <Compile Include="Controllers\Abstractions\ILowLevelController.cs" />
     <Compile Include="Controllers\Abstractions\IFileController.cs" />
-    <Compile Include="Controllers\ActionModalController.cs" />
     <Compile Include="Controllers\AnalyzerController.cs" />
     <Compile Include="Client.cs">
       <SubType>Form</SubType>
@@ -70,10 +68,19 @@
     <Compile Include="Controllers\Abstractions\IAnalyzerController.cs" />
     <Compile Include="Controllers\LowLevelContoller.cs" />
     <Compile Include="FileActions.cs" />
+    <Compile Include="Infrastructure\AnalyzerResult.cs" />
+    <Compile Include="Infrastructure\Analyzer\Context.cs" />
+    <Compile Include="Infrastructure\Analyzer\States\ErrorState.cs" />
+    <Compile Include="Infrastructure\Analyzer\States\FinishState.cs" />
+    <Compile Include="Infrastructure\Analyzer\States\INT_State.cs" />
     <Compile Include="Infrastructure\Exceptions\NotFoundException.cs" />
     <Compile Include="Infrastructure\Exceptions\NotUniqFieldException.cs" />
+    <Compile Include="Infrastructure\Analyzer\Abstractions\RezervedState.cs" />
     <Compile Include="Infrastructure\ILogger.cs" />
     <Compile Include="Infrastructure\Logger.cs" />
+    <Compile Include="Infrastructure\Analyzer\States\NumericState.cs" />
+    <Compile Include="Infrastructure\Analyzer\Abstractions\State.cs" />
+    <Compile Include="Infrastructure\Analyzer\States\VariableState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ActionModal.resx">
@@ -90,6 +97,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

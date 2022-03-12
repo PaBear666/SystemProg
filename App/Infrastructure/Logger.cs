@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace App.infrastructure
+namespace App.Infrastructure
 {
     public class Logger : ILogger
     {

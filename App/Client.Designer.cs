@@ -45,12 +45,19 @@ namespace App
             this.IsOpen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccessDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.inputVS = new System.Windows.Forms.RichTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.outputVS = new System.Windows.Forms.RichTextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gropBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -209,6 +216,11 @@ namespace App
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.inputVS);
+            this.tabPage2.Controls.Add(this.pictureBox1);
+            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.outputVS);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -216,6 +228,53 @@ namespace App
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Анализаторы";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // inputVS
+            // 
+            this.inputVS.BackColor = System.Drawing.SystemColors.MenuText;
+            this.inputVS.ForeColor = System.Drawing.SystemColors.Info;
+            this.inputVS.Location = new System.Drawing.Point(37, 31);
+            this.inputVS.Name = "inputVS";
+            this.inputVS.Size = new System.Drawing.Size(339, 307);
+            this.inputVS.TabIndex = 0;
+            this.inputVS.Text = "";
+            this.inputVS.TextChanged += new System.EventHandler(this.InputVS_TextChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(17, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(415, 373);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(446, 186);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(124, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Количество иттераций:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(618, 179);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 2;
+            // 
+            // outputVS
+            // 
+            this.outputVS.BackColor = System.Drawing.SystemColors.InfoText;
+            this.outputVS.ForeColor = System.Drawing.SystemColors.Info;
+            this.outputVS.Location = new System.Drawing.Point(438, 31);
+            this.outputVS.Name = "outputVS";
+            this.outputVS.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.outputVS.Size = new System.Drawing.Size(280, 106);
+            this.outputVS.TabIndex = 1;
+            this.outputVS.Text = "";
             // 
             // tabPage3
             // 
@@ -239,6 +298,9 @@ namespace App
             this.groupBox2.ResumeLayout(false);
             this.gropBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -262,6 +324,11 @@ namespace App
         private System.Windows.Forms.Button addRecordBtn;
         private System.Windows.Forms.Button updateRecordBtn;
         private System.Windows.Forms.Button deleteRecordBtn;
+        private System.Windows.Forms.RichTextBox outputVS;
+        private System.Windows.Forms.RichTextBox inputVS;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

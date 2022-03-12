@@ -4,7 +4,7 @@ using App.Controllers.Abstractions;
 using System;
 using DAL.Entities;
 using System.Collections.Generic;
-using App.infrastructure;
+using App.Infrastructure;
 using DAL.Providers;
 
 namespace App
@@ -18,12 +18,12 @@ namespace App
         public Client()
         {         
             InitializeComponent();
-
+            ILogger logger = new Logger();
             fileTypeCB.SelectedIndexChanged += FileTypeCB_SelectedIndexChanged;
-            _fileController = new FileController(new Logger());
+            _fileController = new FileController(logger);
             _fileController.UpdateResourceHandler += UpdateTable;
             _lowLevelContoller = new LowLevelContoller();
-            _analyzerController = new AnalyzerController();
+            _analyzerController = new AnalyzerController(logger);
         }
 
         #region Records methods
@@ -130,5 +130,20 @@ namespace App
 
         #endregion
 
+        private void InputVS_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = sender as TextBoxBase;
+            var result = _analyzerController.Execute(textBox.Text);
+            if (!result.Compiled)
+            {
+                outputVS.Text = "Не скомпилировано";
+                outputVS.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                outputVS.Text = "Cкомпилировано";
+                outputVS.ForeColor = System.Drawing.Color.Green;
+            }
+        }
     }
 }
