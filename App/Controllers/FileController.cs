@@ -2,9 +2,11 @@
 using DAL.Entities;
 using System.Collections.Generic;
 using System;
-using DAL.Entities.Abstractions;
+using DAL.Providers.Abstractions;
 using System.Linq;
 using App.infrastructure;
+using System.Linq;
+using App.Infrastructure.Exceptions;
 
 namespace App.Controllers
 {
@@ -24,27 +26,52 @@ namespace App.Controllers
 
         public void AddRecord(Resource resource)
         {
-            resource.Id = _resources.Count + 1;
+            resource.Id = _resources.Count > 0
+                ? _resources.Last().Id + 1
+                : 1;
             _resources.Add(resource);
             UpdateResourceHandler?.Invoke(this, _resources);
         }
 
         public void LoadFromFile(string path)
         {
-            var resources = _fileProvider.LoadFromFile(path);
-            _resources.Clear();
-            foreach (var resource in resources)
+            try
             {
-                _resources.Add(resource);
+                var resources = _fileProvider.LoadFromFile(path);
+
+                if (resources.Select(r => r.Id).Distinct().Count() != resources.Count())
+                {
+                    throw new NotUniqFieldException("Найдено не уникальное значение ресурса");
+                }
+
+                _resources.Clear();
+                foreach (var resource in resources)
+                {
+                    _resources.Add(resource);
+                }
+                UpdateResourceHandler?.Invoke(this, _resources);
             }
-            UpdateResourceHandler?.Invoke(this, _resources);
+            catch(FormatException e)
+            {
+                _logger.LogError(e, "Неверный формат данных в файле");
+            }
+            catch(Exception e)
+            {
+                _logger.LogError(e);
+            }
         }
 
         public void RemoveRecord(int id)
         {
             var resource = _resources.FirstOrDefault(r => r.Id == id);
-            _resources.Remove(resource);
-            UpdateResourceHandler?.Invoke(this, _resources);
+            if(resource != null)
+            {
+                _resources.Remove(resource);
+                UpdateResourceHandler?.Invoke(this, _resources);
+                return;
+            }
+            _logger.LogError(new NotFoundException($"Не было найдено записи с id = {id}"));
+            
         }
 
         public void UnloadToFile(string path)

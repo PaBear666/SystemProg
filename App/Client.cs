@@ -5,6 +5,7 @@ using System;
 using DAL.Entities;
 using System.Collections.Generic;
 using App.infrastructure;
+using DAL.Providers;
 
 namespace App
 {
@@ -17,6 +18,8 @@ namespace App
         public Client()
         {         
             InitializeComponent();
+
+            fileTypeCB.SelectedIndexChanged += FileTypeCB_SelectedIndexChanged;
             _fileController = new FileController(new Logger());
             _fileController.UpdateResourceHandler += UpdateTable;
             _lowLevelContoller = new LowLevelContoller();
@@ -33,15 +36,23 @@ namespace App
 
         private void DeleteRecordBtn_Click(object sender, EventArgs e)
         {
-            _fileController.RemoveRecord((int)dataGrid.SelectedRows[0].Cells[0].Value);
+            var value = dataGrid.SelectedRows[0].Cells[0].Value;
+            if(value != null)
+            {
+                _fileController.RemoveRecord((int)value);
+            }
         }
 
         private void UpdateRecordBtn_Click(object sender, EventArgs e)
         {
-            var id = (int)dataGrid.SelectedRows[0].Cells[0].Value;
-            var resource = _fileController.GetById(id);
-            var modal = new ActionModal(ModalAction.Update, resource);
-            modal.ShowDialog(r => _fileController.UpdateRecord(id, r));
+            var value = dataGrid.SelectedRows[0].Cells[0].Value;
+            if (value != null)
+            {
+                var id = (int)value;
+                var resource = _fileController.GetById(id);
+                var modal = new ActionModal(ModalAction.Update, resource);
+                modal.ShowDialog(r => _fileController.UpdateRecord(id, r));
+            }          
         }
 
         private void SelectedRowEvent(object sender, EventArgs e)

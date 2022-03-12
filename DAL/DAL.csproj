@@ -41,11 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Abstractions\IFileProvider.cs" />
-    <Compile Include="Entities\CSVProvider.cs" />
-    <Compile Include="Entities\PlainTextProvider.cs" />
+    <Compile Include="DataProviders\CSVProvider.cs" />
+    <Compile Include="DataProviders\PlainTextProvider.cs" />
+	<Compile Include="DataProviders\Abstractions\IFileProvider.cs" />
     <Compile Include="Entities\Resource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataProviders\Exceptions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

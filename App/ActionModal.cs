@@ -73,5 +73,10 @@ namespace App
         {
             DialogResult = DialogResult.Cancel;
         }
+
+        private void OKBtnEnableEvent(object sender, EventArgs e)
+        {
+            okBtn.Enabled = !string.IsNullOrWhiteSpace(textBox1.Text);
+        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using DAL.Entities;
-using DAL.Entities.Abstractions;
+using DAL.Providers.Abstractions;
 using System;
 using System.Collections.Generic;
 

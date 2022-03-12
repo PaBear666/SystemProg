@@ -68,6 +68,7 @@ namespace App
             // 
             // okBtn
             // 
+            this.okBtn.Enabled = false;
             this.okBtn.Location = new System.Drawing.Point(46, 178);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(101, 23);
@@ -92,6 +93,7 @@ namespace App
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(127, 20);
             this.textBox1.TabIndex = 5;
+            this.textBox1.TextChanged += new System.EventHandler(this.OKBtnEnableEvent);
             // 
             // comboBox1
             // 

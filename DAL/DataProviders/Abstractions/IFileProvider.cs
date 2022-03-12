@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using DAL.Entities;
 
-namespace DAL.Entities.Abstractions
+namespace DAL.Providers.Abstractions
 {
     public interface IFileProvider
     {
