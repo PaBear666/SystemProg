@@ -132,17 +132,18 @@ namespace App
 
         private void InputVS_TextChanged(object sender, EventArgs e)
         {
-            var textBox = sender as TextBoxBase;
-            var result = _analyzerController.Execute(textBox.Text);
+            var result = _analyzerController.Execute(inputVS.Text);
             if (!result.Compiled)
             {
-                outputVS.Text = "Не скомпилировано";
+                outputVS.Text = result.Message ?? "Не скомпилировано";
                 outputVS.ForeColor = System.Drawing.Color.Red;
+                textBox1.Text = "0";
             }
             else
             {
                 outputVS.Text = "Cкомпилировано";
                 outputVS.ForeColor = System.Drawing.Color.Green;
+                textBox1.Text = result.Value.ToString();
             }
         }
     }

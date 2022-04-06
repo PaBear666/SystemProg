@@ -1,7 +1,6 @@
 ﻿using App.Controllers.Abstractions;
 using App.Infrastructure;
 using App.Infrastructure.Analyzer;
-using App.Infrastructure.Analyzer.States;
 
 namespace App.Controllers
 {
@@ -15,9 +14,8 @@ namespace App.Controllers
         }
 
         public AnalyzerResult Execute(string code)
-        {
-
-            Context context = new Context(new INT_State(),code);
+        { 
+            Context context = new Context(code);
             return context.Result;
         }
     }

@@ -45,6 +45,7 @@ namespace App
             this.IsOpen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccessDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.inputVS = new System.Windows.Forms.RichTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -216,6 +217,7 @@ namespace App
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.inputVS);
             this.tabPage2.Controls.Add(this.pictureBox1);
             this.tabPage2.Controls.Add(this.label1);
@@ -229,6 +231,16 @@ namespace App
             this.tabPage2.Text = "Анализаторы";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(449, 242);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(269, 49);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Запустить";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.InputVS_TextChanged);
+            // 
             // inputVS
             // 
             this.inputVS.BackColor = System.Drawing.SystemColors.MenuText;
@@ -238,7 +250,6 @@ namespace App
             this.inputVS.Size = new System.Drawing.Size(339, 307);
             this.inputVS.TabIndex = 0;
             this.inputVS.Text = "";
-            this.inputVS.TextChanged += new System.EventHandler(this.InputVS_TextChanged);
             // 
             // pictureBox1
             // 
@@ -262,6 +273,7 @@ namespace App
             // 
             this.textBox1.Location = new System.Drawing.Point(618, 179);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 2;
             // 
@@ -329,6 +341,7 @@ namespace App
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

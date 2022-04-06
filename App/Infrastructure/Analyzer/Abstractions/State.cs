@@ -1,4 +1,6 @@
-﻿namespace App.Infrastructure.Analyzer.Abstractions
+﻿using System.Collections.Generic;
+
+namespace App.Infrastructure.Analyzer.Abstractions
 {
     public abstract class State
     {
