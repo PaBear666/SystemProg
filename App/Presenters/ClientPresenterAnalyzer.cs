@@ -15,6 +15,7 @@ namespace App.Presenters
         {
             _client = client;
             _analyzer = analyzer;
+            Init();
         }
         public void InputVS_TextChanged(object sender, EventArgs e)
         {
