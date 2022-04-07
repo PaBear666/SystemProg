@@ -36,6 +36,7 @@ namespace App
             this.loadFileBtn = new System.Windows.Forms.Button();
             this.unloadFileBtn = new System.Windows.Forms.Button();
             this.gropBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.addRecordBtn = new System.Windows.Forms.Button();
             this.updateRecordBtn = new System.Windows.Forms.Button();
             this.deleteRecordBtn = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@ namespace App
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.outputVS = new System.Windows.Forms.RichTextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -110,7 +110,6 @@ namespace App
             this.fileTypeCB.Name = "fileTypeCB";
             this.fileTypeCB.Size = new System.Drawing.Size(220, 21);
             this.fileTypeCB.TabIndex = 2;
-            this.fileTypeCB.SelectedIndexChanged += new System.EventHandler(this.EnableBtnWorkWithFile_SelectedIndexChanged);
             // 
             // loadFileBtn
             // 
@@ -121,7 +120,6 @@ namespace App
             this.loadFileBtn.TabIndex = 3;
             this.loadFileBtn.Text = "Сохранить";
             this.loadFileBtn.UseVisualStyleBackColor = true;
-            this.loadFileBtn.Click += new System.EventHandler(this.UnloadFileBtn_Click);
             // 
             // unloadFileBtn
             // 
@@ -132,7 +130,6 @@ namespace App
             this.unloadFileBtn.TabIndex = 4;
             this.unloadFileBtn.Text = "Открыть";
             this.unloadFileBtn.UseVisualStyleBackColor = true;
-            this.unloadFileBtn.Click += new System.EventHandler(this.LoadFileBtn_Click);
             // 
             // gropBox1
             // 
@@ -147,6 +144,18 @@ namespace App
             this.gropBox1.TabStop = false;
             this.gropBox1.Text = "Действия";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "БД",
+            "ОЗУ"});
+            this.comboBox1.Location = new System.Drawing.Point(20, 30);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(220, 21);
+            this.comboBox1.TabIndex = 8;
+            // 
             // addRecordBtn
             // 
             this.addRecordBtn.Location = new System.Drawing.Point(67, 77);
@@ -155,7 +164,6 @@ namespace App
             this.addRecordBtn.TabIndex = 5;
             this.addRecordBtn.Text = "Добавить";
             this.addRecordBtn.UseVisualStyleBackColor = true;
-            this.addRecordBtn.Click += new System.EventHandler(this.AddRecordBtn_Click);
             // 
             // updateRecordBtn
             // 
@@ -166,7 +174,6 @@ namespace App
             this.updateRecordBtn.TabIndex = 7;
             this.updateRecordBtn.Text = "Редактировать";
             this.updateRecordBtn.UseVisualStyleBackColor = true;
-            this.updateRecordBtn.Click += new System.EventHandler(this.UpdateRecordBtn_Click);
             // 
             // deleteRecordBtn
             // 
@@ -177,7 +184,6 @@ namespace App
             this.deleteRecordBtn.TabIndex = 6;
             this.deleteRecordBtn.Text = "Удалить";
             this.deleteRecordBtn.UseVisualStyleBackColor = true;
-            this.deleteRecordBtn.Click += new System.EventHandler(this.DeleteRecordBtn_Click);
             // 
             // dataGrid
             // 
@@ -191,7 +197,6 @@ namespace App
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.Size = new System.Drawing.Size(443, 366);
             this.dataGrid.TabIndex = 1;
-            this.dataGrid.SelectionChanged += new System.EventHandler(this.SelectedRowEvent);
             // 
             // Id
             // 
@@ -241,7 +246,6 @@ namespace App
             this.button1.TabIndex = 5;
             this.button1.Text = "Запустить";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.InputVS_TextChanged);
             // 
             // inputVS
             // 
@@ -299,19 +303,6 @@ namespace App
             this.tabPage3.Text = "Низкий уровень";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "БД",
-            "ОЗУ"});
-            this.comboBox1.Location = new System.Drawing.Point(20, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(220, 21);
-            this.comboBox1.TabIndex = 8;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.RepositoryType_SelectedIndexChanged);
-            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,30 +325,30 @@ namespace App
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.DataGridView dataGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IsOpen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AccessDate;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox fileTypeCB;
-        private System.Windows.Forms.Button loadFileBtn;
-        private System.Windows.Forms.Button unloadFileBtn;
-        private System.Windows.Forms.GroupBox gropBox1;
-        private System.Windows.Forms.Button addRecordBtn;
-        private System.Windows.Forms.Button updateRecordBtn;
-        private System.Windows.Forms.Button deleteRecordBtn;
-        private System.Windows.Forms.RichTextBox outputVS;
-        private System.Windows.Forms.RichTextBox inputVS;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.TabControl tabControl1;
+        public System.Windows.Forms.TabPage tabPage1;
+        public System.Windows.Forms.TabPage tabPage2;
+        public System.Windows.Forms.TabPage tabPage3;
+        public System.Windows.Forms.DataGridView dataGrid;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        public System.Windows.Forms.DataGridViewTextBoxColumn IsOpen;
+        public System.Windows.Forms.DataGridViewTextBoxColumn AccessDate;
+        public System.Windows.Forms.GroupBox groupBox2;
+        public System.Windows.Forms.ComboBox fileTypeCB;
+        public System.Windows.Forms.Button loadFileBtn;
+        public System.Windows.Forms.Button unloadFileBtn;
+        public System.Windows.Forms.GroupBox gropBox1;
+        public System.Windows.Forms.Button addRecordBtn;
+        public System.Windows.Forms.Button updateRecordBtn;
+        public System.Windows.Forms.Button deleteRecordBtn;
+        public System.Windows.Forms.RichTextBox outputVS;
+        public System.Windows.Forms.RichTextBox inputVS;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

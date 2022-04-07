@@ -9,13 +9,13 @@ namespace DAL.Providers
     {
         public string PathExtension => "csv";
 
-        public ICollection<Resource> LoadFromFile(string path)
+        public ICollection<ResourceEntity> LoadFromFile(string path)
         {
-            List<Resource> resources = new List<Resource>();
+            List<ResourceEntity> resources = new List<ResourceEntity>();
             foreach (string line in File.ReadAllLines(path))
             {
                 var parameters = line.Split(new[] { ';' });
-                var resource = new Resource(
+                var resource = new ResourceEntity(
                     int.Parse(parameters[0]),
                     parameters[1],
                     bool.Parse(parameters[2]),
@@ -25,7 +25,7 @@ namespace DAL.Providers
             return resources;
         }
 
-        public void UnLoadToFile(string path, Resource[] resources)
+        public void UnLoadToFile(string path, ResourceEntity[] resources)
         {
             using (StreamWriter stream = new StreamWriter(path, false))
             {

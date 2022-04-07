@@ -11,14 +11,14 @@ namespace DAL.Repositories
 {
     public class FileRepository : IRepository
     {
-        private readonly IList<Resource> _resources;
+        private readonly IList<ResourceEntity> _resources;
 
         public FileRepository()
         {
-            _resources = new List<Resource>();
+            _resources = new List<ResourceEntity>();
         }
 
-        public void AddRecord(Resource resource)
+        public void AddRecord(ResourceEntity resource)
         {
             resource.Id = _resources.Count > 0
                 ? _resources.Last().Id + 1
@@ -27,7 +27,7 @@ namespace DAL.Repositories
             _resources.Add(resource);
         }
 
-        public Resource GetById(int id)
+        public ResourceEntity GetById(int id)
         {
             return _resources.FirstOrDefault(r => r.Id == id);
         }
@@ -42,7 +42,7 @@ namespace DAL.Repositories
             }
         }
 
-        public void UpdateRecord(int id, Resource newResource)
+        public void UpdateRecord(int id, ResourceEntity newResource)
         {
             var resource = GetById(id);
             resource.Address = newResource.Address;
@@ -50,12 +50,12 @@ namespace DAL.Repositories
             resource.IsOpen = newResource.IsOpen;
         }
 
-        public IList<Resource> GetAll()
+        public IList<ResourceEntity> GetAll()
         {
             return _resources;
         }
 
-        public void AddNewRecords(IList<Resource> resources)
+        public void AddNewRecords(IList<ResourceEntity> resources)
         {
             _resources.Clear();
             foreach (var resource in resources)

@@ -75,7 +75,7 @@ namespace App
             this.okBtn.TabIndex = 3;
             this.okBtn.Text = "OK";
             this.okBtn.UseVisualStyleBackColor = true;
-            this.okBtn.Click += new System.EventHandler(this.OKBtn_Click);
+            
             // 
             // cancelBtn
             // 
@@ -85,7 +85,7 @@ namespace App
             this.cancelBtn.TabIndex = 4;
             this.cancelBtn.Text = "Отмена";
             this.cancelBtn.UseVisualStyleBackColor = true;
-            this.cancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
+            
             // 
             // textBox1
             // 
@@ -93,7 +93,7 @@ namespace App
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(127, 20);
             this.textBox1.TabIndex = 5;
-            this.textBox1.TextChanged += new System.EventHandler(this.OKBtnEnableEvent);
+            
             // 
             // comboBox1
             // 
@@ -136,13 +136,13 @@ namespace App
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button okBtn;
-        private System.Windows.Forms.Button cancelBtn;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Button okBtn;
+        public System.Windows.Forms.Button cancelBtn;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

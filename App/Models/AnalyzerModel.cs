@@ -4,11 +4,11 @@ using App.Infrastructure.Analyzer;
 
 namespace App.Controllers
 {
-    internal class AnalyzerController : IAnalyzerController
+    internal class AnalyzerModel : IAnalyzerModel
     {
         private readonly ILogger _logger;
 
-        public AnalyzerController(ILogger logger)
+        public AnalyzerModel(ILogger logger)
         {
             _logger = logger;
         }

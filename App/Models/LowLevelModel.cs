@@ -2,7 +2,7 @@
 
 namespace App.Controllers
 {
-    internal class LowLevelContoller : ILowLevelController
+    internal class LowLevelModel : ILowLevelModel
     {
 
     }

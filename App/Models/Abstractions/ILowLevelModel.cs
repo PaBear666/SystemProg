@@ -1,6 +1,6 @@
 ﻿namespace App.Controllers.Abstractions
 {
-    public interface ILowLevelController
+    public interface ILowLevelModel
     {
 
     }

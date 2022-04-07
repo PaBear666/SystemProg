@@ -2,7 +2,7 @@
 
 namespace App.Controllers.Abstractions
 {
-    public interface IAnalyzerController
+    public interface IAnalyzerModel
     {
         /// <summary>
         /// Выполнить обработку кода

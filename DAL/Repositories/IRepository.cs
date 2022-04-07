@@ -9,13 +9,13 @@ namespace DAL.Repositories
         /// <summary>
         /// Добавить запись
         /// </summary>
-        void AddRecord(Resource resource);
+        void AddRecord(ResourceEntity resource);
 
         /// <summary>
         /// Загрузить новые значения
         /// </summary>
         /// <param name="resources">Новые значения</param>
-        void AddNewRecords(IList<Resource> resources);
+        void AddNewRecords(IList<ResourceEntity> resources);
 
         /// <summary>
         /// Удалить запись
@@ -28,19 +28,19 @@ namespace DAL.Repositories
         /// </summary>
         /// <param name="id">Идентификатор записи</param>
         /// <param name="newResource">Измененый ресурс</param>
-        void UpdateRecord(int id, Resource newResource);
+        void UpdateRecord(int id, ResourceEntity newResource);
 
         /// <summary>
         /// Получить запись по идентификатору
         /// </summary>
         /// <param name="id">Идентификатор записи</param>
         /// <returns>Ресурс</returns>
-        Resource GetById(int id);
+        ResourceEntity GetById(int id);
 
         /// <summary>
         /// Получить все элементы
         /// </summary>
         /// <returns>Список ресурсов</returns>
-        IList<Resource> GetAll();
+        IList<ResourceEntity> GetAll();
     }
 }

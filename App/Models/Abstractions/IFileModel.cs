@@ -1,4 +1,5 @@
-﻿using DAL.Entities;
+﻿using App.Presenters;
+using DAL.Entities;
 using DAL.Providers.Abstractions;
 using DAL.Repositories;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 
 namespace App.Controllers.Abstractions
 {
-    public interface IFileController
+    public interface IFileModel
     {
         /// <summary>
         /// Обработчик изменения списка
@@ -30,7 +31,7 @@ namespace App.Controllers.Abstractions
         /// <summary>
         /// Добавить запись
         /// </summary>
-        void AddRecord(Resource resource);
+        void AddRecord(ResourceEntity resource);
 
         /// <summary>
         /// Удалить запись
@@ -43,7 +44,7 @@ namespace App.Controllers.Abstractions
         /// </summary>
         /// <param name="id">Идентификатор записи</param>
         /// <param name="newResource">Измененый ресурс</param>
-        void UpdateRecord(int id, Resource newResource);
+        void UpdateRecord(int id, ResourceEntity newResource);
 
         /// <summary>
         /// Загрузить записи из файла
@@ -62,6 +63,6 @@ namespace App.Controllers.Abstractions
         /// </summary>
         /// <param name="id">Идентификатор записи</param>
         /// <returns>Ресурс</returns>
-        Resource GetById(int id);
+        ResourceEntity GetById(int id);
     }
 }

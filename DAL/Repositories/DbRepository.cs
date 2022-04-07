@@ -15,16 +15,16 @@ namespace DAL.Repositories
             _connectionString = connection;
         }
 
-        public void AddRecord(Resource resource)
+        public void AddRecord(ResourceEntity resource)
         {
             using (Context.Context context = new Context.Context(_connectionString))
             {
-                context.Set<Resource>().Add(resource);
+                context.Set<ResourceEntity>().Add(resource);
                 context.SaveChanges();
             }
         }
 
-        public Resource GetById(int id)
+        public ResourceEntity GetById(int id)
         {
             using (Context.Context context = new Context.Context(_connectionString))
             {
@@ -32,7 +32,7 @@ namespace DAL.Repositories
             }
         }
 
-        private Resource GetById(int id, Context.Context context)
+        private ResourceEntity GetById(int id, Context.Context context)
         {
             return context.Resources.Where(r => r.Id == id).FirstOrDefault();
         }
@@ -46,7 +46,7 @@ namespace DAL.Repositories
             }
         }
 
-        public void UpdateRecord(int id, Resource newResource)
+        public void UpdateRecord(int id, ResourceEntity newResource)
         {
             using (Context.Context context = new Context.Context(_connectionString))
             {
@@ -58,7 +58,7 @@ namespace DAL.Repositories
             }
         }
 
-        public IList<Resource> GetAll()
+        public IList<ResourceEntity> GetAll()
         {
             using (Context.Context context = new Context.Context(_connectionString))
             {
@@ -66,12 +66,12 @@ namespace DAL.Repositories
             }
         }
 
-        private IList<Resource> GetAll(Context.Context context)
+        private IList<ResourceEntity> GetAll(Context.Context context)
         {
             return context.Resources.ToList();
         }
 
-        public void AddNewRecords(IList<Resource> resources)
+        public void AddNewRecords(IList<ResourceEntity> resources)
         {
             using (Context.Context context = new Context.Context(_connectionString))
             {

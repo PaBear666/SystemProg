@@ -14,13 +14,13 @@ namespace DAL.Providers.Abstractions
         /// </summary>
         /// <param name="file">Путь до файла</param>
         /// <returns>Коллекция ресурсов</returns>
-        ICollection<Resource> LoadFromFile(string path);
+        ICollection<ResourceEntity> LoadFromFile(string path);
 
         /// <summary>
         /// Загрузить записи в файл
         /// </summary>
         /// <param name="path">Путь до файла</param>
         /// <param name="resources">Ресурсы</param>
-        void UnLoadToFile(string path, Resource[] resources); 
+        void UnLoadToFile(string path, ResourceEntity[] resources); 
     }
 }

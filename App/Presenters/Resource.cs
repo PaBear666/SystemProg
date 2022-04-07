@@ -1,17 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace DAL.Entities
+namespace App.Presenters
 {
     public class Resource
     {
-
         #region Properties 
 
         /// <summary>
         /// Идентификатор ресурса
         /// </summary>
         public int Id { get; set; }
-
 
         /// <summary>
         /// Адрес ресурса
@@ -34,7 +36,7 @@ namespace DAL.Entities
 
         public Resource()
         {
-                
+
         }
 
         public Resource(string address, bool isOpen, DateTime accessDate)

@@ -58,7 +58,7 @@
     <Compile Include="DataProviders\CSVProvider.cs" />
     <Compile Include="DataProviders\PlainTextProvider.cs" />
     <Compile Include="DataProviders\Abstractions\IFileProvider.cs" />
-    <Compile Include="Entities\Resource.cs" />
+    <Compile Include="Entities\ResourceEntity.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Exceptions\NotUniqFieldException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

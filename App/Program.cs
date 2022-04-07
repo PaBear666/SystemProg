@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App.Presenters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Client());
+            new ClientPresenter(new Client());
         }
     }
 }

@@ -65,18 +65,19 @@
     <Compile Include="ActionModal.Designer.cs">
       <DependentUpon>ActionModal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\Abstractions\ILowLevelController.cs" />
-    <Compile Include="Controllers\Abstractions\IFileController.cs" />
-    <Compile Include="Controllers\AnalyzerController.cs" />
+    <Compile Include="Mapper.cs" />
+    <Compile Include="Models\Abstractions\ILowLevelModel.cs" />
+    <Compile Include="Models\Abstractions\IFileModel.cs" />
+    <Compile Include="Models\AnalyzerModel.cs" />
     <Compile Include="Client.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Client.Designer.cs">
       <DependentUpon>Client.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\FileController.cs" />
-    <Compile Include="Controllers\Abstractions\IAnalyzerController.cs" />
-    <Compile Include="Controllers\LowLevelContoller.cs" />
+    <Compile Include="Models\FileModel.cs" />
+    <Compile Include="Models\Abstractions\IAnalyzerModel.cs" />
+    <Compile Include="Models\LowLevelModel.cs" />
     <Compile Include="FileActions.cs" />
     <Compile Include="Infrastructure\AnalyzerResult.cs" />
     <Compile Include="Infrastructure\Analyzer\Context.cs" />
@@ -84,6 +85,12 @@
     <Compile Include="Infrastructure\ILogger.cs" />
     <Compile Include="Infrastructure\Logger.cs" />
     <Compile Include="Infrastructure\Analyzer\Abstractions\State.cs" />
+    <Compile Include="Presenters\ActionModalPresenter.cs" />
+    <Compile Include="Presenters\ClientPresenter.cs" />
+    <Compile Include="Presenters\ClientPresenterAnalyzer.cs" />
+    <Compile Include="Presenters\ClientPresenterFile.cs" />
+    <Compile Include="Presenters\ClientPresenterLowLevel.cs" />
+    <Compile Include="Presenters\Resource.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ActionModal.resx">

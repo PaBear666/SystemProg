@@ -7,10 +7,11 @@ using System.Linq;
 using App.Infrastructure;
 using DAL.Repositories;
 using DAL.Exceptions;
+using App.Presenters;
 
 namespace App.Controllers
 {
-    internal class FileController : IFileController
+    internal class FileModel : IFileModel
     {
         private readonly ILogger _logger;
         private IRepository _repository; 
@@ -18,15 +19,15 @@ namespace App.Controllers
 
         public event EventHandler<IList<Resource>> UpdateResourceHandler;
 
-        public FileController(ILogger logger)
+        public FileModel(ILogger logger)
         {
             _logger = logger;
         }
 
-        public void AddRecord(Resource resource)
+        public void AddRecord(ResourceEntity resource)
         {
             _repository.AddRecord(resource);
-            UpdateResourceHandler(_repository,_repository.GetAll());
+            UpdateResourceHandler(_repository,_repository.GetAll().ToResource().ToList());
         }
 
         public void LoadFromFile(string path)
@@ -39,7 +40,7 @@ namespace App.Controllers
             }
 
             _repository.AddNewRecords(resources.ToList());
-            UpdateResourceHandler?.Invoke(_repository, _repository.GetAll());
+            UpdateResourceHandler?.Invoke(_repository, _repository.GetAll().ToResource().ToList());
         }
 
         public void UnloadToFile(string path)
@@ -52,7 +53,7 @@ namespace App.Controllers
             try
             {
                 _repository.RemoveRecord(id);
-                UpdateResourceHandler(_repository, _repository.GetAll());
+                UpdateResourceHandler(_repository, _repository.GetAll().ToResource().ToList());
             }
             catch(Exception e)
             {
@@ -61,15 +62,15 @@ namespace App.Controllers
             
         }
 
-        public Resource GetById(int id)
+        public ResourceEntity GetById(int id)
         {
             return _repository.GetById(id);
         }
 
-        public void UpdateRecord(int id, Resource newResource)
+        public void UpdateRecord(int id, ResourceEntity newResource)
         {
             _repository.UpdateRecord(id, newResource);
-            UpdateResourceHandler(_repository, _repository.GetAll());
+            UpdateResourceHandler(_repository, _repository.GetAll().ToResource().ToList());
         }
 
         public string SetFileProvider(IFileProvider fileProvider)
@@ -81,7 +82,7 @@ namespace App.Controllers
         public void SetRepository(IRepository repository)
         {
             _repository = repository;
-            UpdateResourceHandler(_repository, _repository.GetAll());
+            UpdateResourceHandler(_repository, _repository.GetAll().ToResource().ToList());
         }
     }
 }
