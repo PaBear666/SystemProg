@@ -52,6 +52,7 @@ namespace App
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.outputVS = new System.Windows.Forms.RichTextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -135,19 +136,20 @@ namespace App
             // 
             // gropBox1
             // 
+            this.gropBox1.Controls.Add(this.comboBox1);
             this.gropBox1.Controls.Add(this.addRecordBtn);
             this.gropBox1.Controls.Add(this.updateRecordBtn);
             this.gropBox1.Controls.Add(this.deleteRecordBtn);
             this.gropBox1.Location = new System.Drawing.Point(498, 6);
             this.gropBox1.Name = "gropBox1";
-            this.gropBox1.Size = new System.Drawing.Size(246, 186);
+            this.gropBox1.Size = new System.Drawing.Size(246, 204);
             this.gropBox1.TabIndex = 8;
             this.gropBox1.TabStop = false;
             this.gropBox1.Text = "Действия";
             // 
             // addRecordBtn
             // 
-            this.addRecordBtn.Location = new System.Drawing.Point(69, 40);
+            this.addRecordBtn.Location = new System.Drawing.Point(67, 77);
             this.addRecordBtn.Name = "addRecordBtn";
             this.addRecordBtn.Size = new System.Drawing.Size(127, 23);
             this.addRecordBtn.TabIndex = 5;
@@ -158,7 +160,7 @@ namespace App
             // updateRecordBtn
             // 
             this.updateRecordBtn.Enabled = false;
-            this.updateRecordBtn.Location = new System.Drawing.Point(69, 127);
+            this.updateRecordBtn.Location = new System.Drawing.Point(67, 164);
             this.updateRecordBtn.Name = "updateRecordBtn";
             this.updateRecordBtn.Size = new System.Drawing.Size(127, 23);
             this.updateRecordBtn.TabIndex = 7;
@@ -169,7 +171,7 @@ namespace App
             // deleteRecordBtn
             // 
             this.deleteRecordBtn.Enabled = false;
-            this.deleteRecordBtn.Location = new System.Drawing.Point(67, 85);
+            this.deleteRecordBtn.Location = new System.Drawing.Point(65, 122);
             this.deleteRecordBtn.Name = "deleteRecordBtn";
             this.deleteRecordBtn.Size = new System.Drawing.Size(129, 23);
             this.deleteRecordBtn.TabIndex = 6;
@@ -297,6 +299,19 @@ namespace App
             this.tabPage3.Text = "Низкий уровень";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "БД",
+            "ОЗУ"});
+            this.comboBox1.Location = new System.Drawing.Point(20, 30);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(220, 21);
+            this.comboBox1.TabIndex = 8;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.RepositoryType_SelectedIndexChanged);
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -342,6 +357,7 @@ namespace App
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

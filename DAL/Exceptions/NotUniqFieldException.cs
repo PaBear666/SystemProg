@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace App.Infrastructure.Exceptions
+namespace DAL.Exceptions
 {
-    class NotUniqFieldException : Exception
+    public class NotUniqFieldException : Exception
     {
         public NotUniqFieldException(string message) : base(message)
         {

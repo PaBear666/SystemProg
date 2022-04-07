@@ -1,5 +1,6 @@
 ﻿using DAL.Entities;
 using DAL.Providers.Abstractions;
+using DAL.Repositories;
 using System;
 using System.Collections.Generic;
 
@@ -16,8 +17,15 @@ namespace App.Controllers.Abstractions
         /// Установить провайдер для работы с файлом
         /// </summary>
         /// <param name="fileProvider">Провайдер</param>
+        /// <param name="repository">Репозиторий</param>
         /// <returns>Тип расширения</returns>
         string SetFileProvider(IFileProvider fileProvider);
+
+        /// <summary>
+        /// Установить репозиторий
+        /// </summary>
+        /// <param name="repository">Репозиторий</param>
+        void SetRepository(IRepository repository);
 
         /// <summary>
         /// Добавить запись

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace App.Infrastructure.Exceptions
+namespace DAL.Exceptions
 {
     public class NotFoundException : Exception
     {

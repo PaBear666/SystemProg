@@ -5,15 +5,15 @@ using System;
 using DAL.Providers.Abstractions;
 using System.Linq;
 using App.Infrastructure;
-using System.Linq;
-using App.Infrastructure.Exceptions;
+using DAL.Repositories;
+using DAL.Exceptions;
 
 namespace App.Controllers
 {
     internal class FileController : IFileController
     {
-        private readonly IList<Resource> _resources;
         private readonly ILogger _logger;
+        private IRepository _repository; 
         private IFileProvider _fileProvider;
 
         public event EventHandler<IList<Resource>> UpdateResourceHandler;
@@ -21,62 +21,55 @@ namespace App.Controllers
         public FileController(ILogger logger)
         {
             _logger = logger;
-            _resources = new List<Resource>();
         }
 
         public void AddRecord(Resource resource)
         {
-            resource.Id = _resources.Count > 0
-                ? _resources.Last().Id + 1
-                : 1;
-            _resources.Add(resource);
-            UpdateResourceHandler?.Invoke(this, _resources);
+            _repository.AddRecord(resource);
+            UpdateResourceHandler(_repository,_repository.GetAll());
         }
 
         public void LoadFromFile(string path)
         {
-            try
-            {
-                var resources = _fileProvider.LoadFromFile(path);
+            var resources = _fileProvider.LoadFromFile(path);
 
-                if (resources.Select(r => r.Id).Distinct().Count() != resources.Count())
-                {
-                    throw new NotUniqFieldException("Найдено не уникальное значение ресурса");
-                }
+            if (resources.Select(r => r.Id).Distinct().Count() != resources.Count())
+            {
+                throw new NotUniqFieldException("Найдено не уникальное значение ресурса");
+            }
 
-                _resources.Clear();
-                foreach (var resource in resources)
-                {
-                    _resources.Add(resource);
-                }
-                UpdateResourceHandler?.Invoke(this, _resources);
-            }
-            catch(FormatException e)
-            {
-                _logger.LogError(e, "Неверный формат данных в файле");
-            }
-            catch(Exception e)
-            {
-                _logger.LogError(e);
-            }
-        }
-
-        public void RemoveRecord(int id)
-        {
-            var resource = _resources.FirstOrDefault(r => r.Id == id);
-            if(resource != null)
-            {
-                _resources.Remove(resource);
-                UpdateResourceHandler?.Invoke(this, _resources);
-                return;
-            }
-            _logger.LogError(new NotFoundException($"Не было найдено записи с id = {id}"));
-            
+            _repository.AddNewRecords(resources.ToList());
+            UpdateResourceHandler?.Invoke(_repository, _repository.GetAll());
         }
 
         public void UnloadToFile(string path)
         {
-            _fileProvider.UnLoadToFile(path, _resources.ToArray());
+            _fileProvider.UnLoadToFile(path, _repository.GetAll().ToArray());
+        }
+
+        public void RemoveRecord(int id)
+        {
+            try
+            {
+                _repository.RemoveRecord(id);
+                UpdateResourceHandler(_repository, _repository.GetAll());
+            }
+            catch(Exception e)
+            {
+                _logger.LogError(new NotFoundException($"Не было найдено записи с id = {id}"));
+            }
+            
+        }
+
+        public Resource GetById(int id)
+        {
+            return _repository.GetById(id);
+        }
+
+        public void UpdateRecord(int id, Resource newResource)
+        {
+            _repository.UpdateRecord(id, newResource);
+            UpdateResourceHandler(_repository, _repository.GetAll());
         }
 
         public string SetFileProvider(IFileProvider fileProvider)
@@ -85,18 +78,10 @@ namespace App.Controllers
             return _fileProvider.PathExtension;
         }
 
-        public Resource GetById(int id)
+        public void SetRepository(IRepository repository)
         {
-            return _resources.FirstOrDefault(r => r.Id == id);
-        }
-
-        public void UpdateRecord(int id, Resource newResource)
-        {
-            var resource = GetById(id);
-            resource.Address = newResource.Address;
-            resource.AccessDate = newResource.AccessDate;
-            resource.IsOpen = newResource.IsOpen;
-            UpdateResourceHandler?.Invoke(this, _resources);
+            _repository = repository;
+            UpdateResourceHandler(_repository, _repository.GetAll());
         }
     }
 }

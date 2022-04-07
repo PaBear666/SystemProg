@@ -6,6 +6,7 @@ using DAL.Entities;
 using System.Collections.Generic;
 using App.Infrastructure;
 using DAL.Providers;
+using DAL.Repositories;
 
 namespace App
 {
@@ -24,6 +25,7 @@ namespace App
             _fileController.UpdateResourceHandler += UpdateTable;
             _lowLevelContoller = new LowLevelContoller();
             _analyzerController = new AnalyzerController(logger);
+            comboBox1.SelectedItem = "ОЗУ";
         }
 
         #region Records methods
@@ -94,12 +96,27 @@ namespace App
             }
         }
 
+        private void RepositoryType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var fileProvderStr = comboBox1.SelectedItem as string;
+            switch (fileProvderStr)
+            {
+                case "ОЗУ":
+                     _fileController.SetRepository(new FileRepository());
+                    break;
+                case "БД":
+                     _fileController.SetRepository(new DbRepository("Server=(localdb)\\mssqllocaldb;Database=systemProg;Trusted_Connection=True;"));
+                    break;
+            }
+        }
+
         private void EnableBtnWorkWithFile_SelectedIndexChanged(object sender, EventArgs e)
         {
             fileTypeCB.SelectedIndexChanged -= EnableBtnWorkWithFile_SelectedIndexChanged;
             loadFileBtn.Enabled = true;
             unloadFileBtn.Enabled = true;
         }
+
         private void LoadFileBtn_Click(object sender, EventArgs e)
         {
             using(OpenFileDialog dialog = new OpenFileDialog())
@@ -130,6 +147,7 @@ namespace App
 
         #endregion
 
+        #region Analyzer
         private void InputVS_TextChanged(object sender, EventArgs e)
         {
             var result = _analyzerController.Execute(inputVS.Text);
@@ -146,5 +164,6 @@ namespace App
                 textBox1.Text = result.Value.ToString();
             }
         }
+        #endregion
     }
 }
