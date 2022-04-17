@@ -57,6 +57,7 @@ namespace App
             this.outputVS = new System.Windows.Forms.RichTextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.logtext = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -67,6 +68,7 @@ namespace App
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid3)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -344,12 +346,24 @@ namespace App
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.logtext);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Size = new System.Drawing.Size(798, 461);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "Логи";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // logtext
+            // 
+            this.logtext.BackColor = System.Drawing.SystemColors.InfoText;
+            this.logtext.ForeColor = System.Drawing.SystemColors.Info;
+            this.logtext.Location = new System.Drawing.Point(3, 14);
+            this.logtext.Name = "logtext";
+            this.logtext.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.logtext.Size = new System.Drawing.Size(756, 402);
+            this.logtext.TabIndex = 2;
+            this.logtext.Text = "";
             // 
             // Client
             // 
@@ -370,6 +384,7 @@ namespace App
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid3)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -404,6 +419,7 @@ namespace App
         public System.Windows.Forms.TabPage tabPage6;
         public System.Windows.Forms.DataGridView dataGrid2;
         public System.Windows.Forms.DataGridView dataGrid3;
+        public System.Windows.Forms.RichTextBox logtext;
     }
 }
 

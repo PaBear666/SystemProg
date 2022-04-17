@@ -55,8 +55,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataProviders\Abstractions\IFileProvider.cs" />
-    <Compile Include="Entities\AccessEntity.cs" />
-    <Compile Include="Entities\FileEntity.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Exceptions\NotUniqFieldException.cs" />

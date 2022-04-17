@@ -17,7 +17,7 @@ namespace App.Entities
         public ClientPresenter(Client client)
         {
             _client = client;
-            _logger = new Logger();
+            _logger = new Logger(_client.logtext);
             _clientPresenterFile = new ClientPresenterFileResource(_client, new FileModel<Resource>(_logger), new FileRepository<Resource>());
             _analyzerModel = new ClientPresenterAnalyzer(_client, new AnalyzerModel(_logger));
             _lowLevelModel = new ClientPresenterLowLevel();

@@ -34,14 +34,21 @@ namespace App.Controllers
         public void LoadFromFile(string path)
         {
             var resources = _fileProvider.LoadFromFile(path);
-
-            if (resources.Select(r => r.Id).Distinct().Count() != resources.Count())
+            try
             {
-                throw new NotUniqFieldException("Найдено не уникальное значение ресурса");
-            }
+                if (resources.Select(r => r.Id).Distinct().Count() != resources.Count())
+                {
+                    throw new NotUniqFieldException("Найдено не уникальное значение ресурса");
+                }
 
-            _repository.AddNewRecords(resources.ToList());
-            UpdateResourceHandler?.Invoke(_repository, _repository.GetAll());
+                _repository.AddNewRecords(resources.ToList());
+                UpdateResourceHandler?.Invoke(_repository, _repository.GetAll());
+            }
+            catch(Exception e)
+            {
+                _logger.LogError(e);
+            }
+            
         }
 
         public void UnloadToFile(string path)
