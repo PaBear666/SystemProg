@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using App.Infrastructure;
 using DAL.Providers;
 using DAL.Repositories;
-using App.Presenters;
+using App.Entities;
 
 namespace App
 {

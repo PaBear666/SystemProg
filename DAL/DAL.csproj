@@ -54,11 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\Context.cs" />
-    <Compile Include="DataProviders\CSVProvider.cs" />
-    <Compile Include="DataProviders\PlainTextProvider.cs" />
     <Compile Include="DataProviders\Abstractions\IFileProvider.cs" />
-    <Compile Include="Entities\ResourceEntity.cs" />
+    <Compile Include="Entities\AccessEntity.cs" />
+    <Compile Include="Entities\FileEntity.cs" />
+    <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Exceptions\NotUniqFieldException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,9 +65,7 @@
     <Compile Include="Repositories\FileRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataProviders\Exceptions\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2A7A9810-7A4C-4B55-9F12-5F3F5A26BB0C}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>App</RootNamespace>
     <AssemblyName>App</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -65,7 +65,9 @@
     <Compile Include="ActionModal.Designer.cs">
       <DependentUpon>ActionModal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mapper.cs" />
+    <Compile Include="Entities\Access.cs" />
+    <Compile Include="Entities\File.cs" />
+    <Compile Include="Infrastructure\Context.cs" />
     <Compile Include="Models\Abstractions\ILowLevelModel.cs" />
     <Compile Include="Models\Abstractions\IFileModel.cs" />
     <Compile Include="Models\AnalyzerModel.cs" />
@@ -80,19 +82,26 @@
     <Compile Include="Models\LowLevelModel.cs" />
     <Compile Include="FileActions.cs" />
     <Compile Include="Infrastructure\AnalyzerResult.cs" />
-    <Compile Include="Infrastructure\Analyzer\Context.cs" />
-    <Compile Include="Infrastructure\Analyzer\Abstractions\RezervedState.cs" />
+    <Compile Include="Infrastructure\Analyzer.cs" />
     <Compile Include="Infrastructure\ILogger.cs" />
     <Compile Include="Infrastructure\Logger.cs" />
-    <Compile Include="Infrastructure\Analyzer\Abstractions\State.cs" />
-    <Compile Include="Presenters\ActionModalPresenter.cs" />
+    <Compile Include="Presenters\ActionModalPresenterAccess.cs" />
+    <Compile Include="Presenters\ActionModalPresenterFile.cs" />
+    <Compile Include="Presenters\ActionModalPresenterResource.cs" />
     <Compile Include="Presenters\ClientPresenter.cs" />
     <Compile Include="Presenters\ClientPresenterAnalyzer.cs" />
     <Compile Include="Presenters\ClientPresenterFile.cs" />
+    <Compile Include="Presenters\ClientPresenterFileAccess.cs" />
+    <Compile Include="Presenters\ClientPresenterFileFile.cs" />
+    <Compile Include="Presenters\ClientPresenterFileResource.cs" />
     <Compile Include="Presenters\ClientPresenterLowLevel.cs" />
-    <Compile Include="Presenters\Resource.cs" />
+    <Compile Include="Entities\Resource.cs" />
+    <Compile Include="Presenters\IActionModalPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\BinaryProvider.cs" />
+    <Compile Include="Providers\CSVProvider.cs" />
+    <Compile Include="Providers\XMLProvider.cs" />
     <EmbeddedResource Include="ActionModal.resx">
       <DependentUpon>ActionModal.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,9 +138,7 @@
       <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Infrastructure\Analyzer\States\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -6,11 +6,11 @@ using System.Text.RegularExpressions;
 
 namespace App.Infrastructure.Analyzer
 {
-    public class Context
+    public class Analyzer
     {
         public AnalyzerResult Result { get; }
 
-        public Context(string code)
+        public Analyzer(string code)
         {
             Result = new AnalyzerResult();
             code = Regex.Replace(code, @"\s+", " ");

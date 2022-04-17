@@ -9,16 +9,17 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
-    public class FileRepository : IRepository
+    public class FileRepository <T> : IRepository<T> 
+        where T : class, IEntity
     {
-        private readonly IList<ResourceEntity> _resources;
+        private readonly IList<T> _resources;
 
         public FileRepository()
         {
-            _resources = new List<ResourceEntity>();
+            _resources = new List<T>();
         }
 
-        public void AddRecord(ResourceEntity resource)
+        public void AddRecord(T resource)
         {
             resource.Id = _resources.Count > 0
                 ? _resources.Last().Id + 1
@@ -27,7 +28,7 @@ namespace DAL.Repositories
             _resources.Add(resource);
         }
 
-        public ResourceEntity GetById(int id)
+        public T GetById(int id)
         {
             return _resources.FirstOrDefault(r => r.Id == id);
         }
@@ -42,20 +43,18 @@ namespace DAL.Repositories
             }
         }
 
-        public void UpdateRecord(int id, ResourceEntity newResource)
+        public void UpdateRecord(int id, T newResource)
         {
             var resource = GetById(id);
-            resource.Address = newResource.Address;
-            resource.AccessDate = newResource.AccessDate;
-            resource.IsOpen = newResource.IsOpen;
+            resource.Update(newResource);
         }
 
-        public IList<ResourceEntity> GetAll()
+        public IList<T> GetAll()
         {
             return _resources;
         }
 
-        public void AddNewRecords(IList<ResourceEntity> resources)
+        public void AddNewRecords(IList<T> resources)
         {
             _resources.Clear();
             foreach (var resource in resources)

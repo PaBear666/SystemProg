@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.Presenters
+namespace App.Entities
 {
     class ClientPresenterAnalyzer : IDisposable
     {

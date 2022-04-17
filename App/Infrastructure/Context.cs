@@ -1,11 +1,12 @@
-﻿using DAL.Entities;
+﻿using App.Entities;
+using DAL.Entities;
 using System.Data.Entity;
 
-namespace DAL.Context
+namespace App.Infrastructure
 {
     public class Context : DbContext
     {
-        public DbSet<ResourceEntity> Resources { get; set; }
+        public DbSet<Resource> Resources { get; set; }
 
         public Context(string connectionString) : base(connectionString)
         {
