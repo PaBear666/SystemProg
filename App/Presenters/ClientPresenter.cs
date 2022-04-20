@@ -23,7 +23,7 @@ namespace App.Presenters
             _logger = new Logger();
             _clientPresenterFile = new ClientPresenterFile(_client, new FileModel(_logger));
             _analyzerModel = new ClientPresenterAnalyzer(_client, new AnalyzerModel(_logger));
-            _lowLevelModel = new ClientPresenterLowLevel();
+            _lowLevelModel = new ClientPresenterLowLevel(_client, new LowLevelModel());//добавил параметр
             Application.Run(_client);
         }
 
