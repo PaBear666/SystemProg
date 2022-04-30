@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace DAL.Repositories
 {
     public class FileRepository <T> : IRepository<T> 
-        where T : class, IEntity
+        where T : class, IEntity<T>
     {
         private readonly IList<T> _resources;
 

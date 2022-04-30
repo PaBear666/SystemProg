@@ -59,14 +59,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionModal.cs">
+    <Compile Include="ActionDllRecord.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ActionModal.Designer.cs">
-      <DependentUpon>ActionModal.cs</DependentUpon>
+    <Compile Include="ActionDllRecord.Designer.cs">
+      <DependentUpon>ActionDllRecord.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Access.cs" />
-    <Compile Include="Entities\File.cs" />
+    <Compile Include="ActionFileRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActionFileRecord.Designer.cs">
+      <DependentUpon>ActionFileRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActionResource.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActionResource.Designer.cs">
+      <DependentUpon>ActionResource.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DllRecord.cs" />
+    <Compile Include="Entities\FileRecord.cs" />
     <Compile Include="Infrastructure\Context.cs" />
     <Compile Include="Models\Abstractions\ILowLevelModel.cs" />
     <Compile Include="Models\Abstractions\IFileModel.cs" />
@@ -85,25 +97,30 @@
     <Compile Include="Infrastructure\Analyzer.cs" />
     <Compile Include="Infrastructure\ILogger.cs" />
     <Compile Include="Infrastructure\Logger.cs" />
-    <Compile Include="Presenters\ActionsModals\ActionModalPresenterAccess.cs" />
-    <Compile Include="Presenters\ActionsModals\ActionModalPresenterFile.cs" />
+    <Compile Include="Presenters\ActionsModals\ActionModalPresenterDllRecord.cs" />
+    <Compile Include="Presenters\ActionsModals\ActionModalPresenterFileRecord.cs" />
     <Compile Include="Presenters\ActionsModals\ActionModalPresenterResource.cs" />
     <Compile Include="Presenters\ClientPresenter.cs" />
     <Compile Include="Presenters\ClientPresenterAnalyzer.cs" />
     <Compile Include="Presenters\ClientPresenterFiles\ClientPresenterFile.cs" />
-    <Compile Include="Presenters\ClientPresenterFiles\ClientPresenterFileAccess.cs" />
-    <Compile Include="Presenters\ClientPresenterFiles\ClientPresenterFileFile.cs" />
+    <Compile Include="Presenters\ClientPresenterFiles\ClientPresenterFileDllRecord.cs" />
+    <Compile Include="Presenters\ClientPresenterFiles\ClientPresenterFileFileRecord.cs" />
     <Compile Include="Presenters\ClientPresenterFiles\ClientPresenterFileResource.cs" />
     <Compile Include="Presenters\ClientPresenterLowLevel.cs" />
     <Compile Include="Entities\Resource.cs" />
     <Compile Include="Presenters\ActionsModals\IActionModalPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\BinaryProvider.cs" />
+    <Compile Include="Providers\PlainTextProvider.cs" />
     <Compile Include="Providers\CSVProvider.cs" />
-    <Compile Include="Providers\XMLProvider.cs" />
-    <EmbeddedResource Include="ActionModal.resx">
-      <DependentUpon>ActionModal.cs</DependentUpon>
+    <EmbeddedResource Include="ActionDllRecord.resx">
+      <DependentUpon>ActionDllRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActionFileRecord.resx">
+      <DependentUpon>ActionFileRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActionResource.resx">
+      <DependentUpon>ActionResource.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client.resx">
       <DependentUpon>Client.cs</DependentUpon>

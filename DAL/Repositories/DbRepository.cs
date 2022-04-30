@@ -8,7 +8,7 @@ using System.Linq;
 namespace DAL.Repositories
 {
     public class DbRepository<T> : IRepository<T>
-        where T: class,IEntity
+        where T: class,IEntity<T>
     {
         private Func<DbContext> _getContext;
 

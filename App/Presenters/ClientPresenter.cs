@@ -11,16 +11,16 @@ namespace App.Entities
         private readonly Client _client;
         private readonly ILogger _logger;
         private  ClientPresenterFile _clientPresenterFile;
-        private  ClientPresenterLowLevel _lowLevelModel;
-        private  ClientPresenterAnalyzer _analyzerModel;
+        private  ClientPresenterLowLevel _lowLevelPresenter;
+        private  ClientPresenterAnalyzer _analyzerPresenter;
 
         public ClientPresenter(Client client)
         {
             _client = client;
             _logger = new Logger(_client.logtext);
             _clientPresenterFile = new ClientPresenterFileResource(_client, new FileModel<Resource>(_logger), new FileRepository<Resource>());
-            _analyzerModel = new ClientPresenterAnalyzer(_client, new AnalyzerModel(_logger));
-            _lowLevelModel = new ClientPresenterLowLevel();
+            _analyzerPresenter = new ClientPresenterAnalyzer(_client, new AnalyzerModel(_logger));
+            _lowLevelPresenter = new ClientPresenterLowLevel(_client, new LowLevelModel());
 
             _client.tabControl2.Selected += TabControl2_Selected;
             Application.Run(_client);
@@ -30,14 +30,14 @@ namespace App.Entities
             _clientPresenterFile?.Dispose();
             switch (e.TabPage.Text)
             {
-                case "Ресурсы":
+                case "Записи о ресурсах":
                     _clientPresenterFile = new ClientPresenterFileResource(_client, new FileModel<Resource>(_logger), new FileRepository<Resource>());
                     break;
-                case "Доступы":
-                    _clientPresenterFile = new ClientPresenterFileAccess(_client, new FileModel<Access>(_logger), new FileRepository<Access>());
+                case "Записи о dll":
+                    _clientPresenterFile = new ClientPresenterFileDllRecord(_client, new FileModel<DllRecord>(_logger), new FileRepository<DllRecord>());
                     break;
-                case "Файлы":
-                    _clientPresenterFile = new ClientPresenterFileFile(_client, new FileModel<File>(_logger), new FileRepository<File>());
+                case "Записи о файлах":
+                    _clientPresenterFile = new ClientPresenterFileFileRecord(_client, new FileModel<FileRecord>(_logger), new FileRepository<FileRecord>());
                     break;
             }
             _client.comboBox1.SelectedIndex = 1;

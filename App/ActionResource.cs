@@ -4,9 +4,9 @@ using DAL.Entities;
 
 namespace App
 {
-    public partial class ActionModal : Form
+    public partial class ActionResource : Form
     {
-        public ActionModal()
+        public ActionResource()
         {
             InitializeComponent();
         }

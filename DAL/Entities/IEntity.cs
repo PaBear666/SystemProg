@@ -5,6 +5,11 @@ namespace DAL.Entities
     public interface IEntity
     {
         int Id { get; set; }
-        void Update(IEntity newEntity);
+    }
+
+    public interface IEntity<T> : IEntity
+        where T : IEntity
+    {
+        void Update(T newEntity);
     }
 }

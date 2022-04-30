@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace App.Presenters
 {
     abstract public class ClientPresenterFile<T> : ClientPresenterFile
-        where T : class, IEntity
+        where T : class, IEntity<T>
     {
         protected IFileModel<T> _fileModel;
         protected string _fileExtension;

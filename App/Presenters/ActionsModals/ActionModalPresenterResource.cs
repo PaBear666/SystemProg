@@ -7,10 +7,10 @@ namespace App.Entities
     class ActionModalPresenterResource : IActionModalPresenter<Resource>
     {
         private Resource _record;
-        private ActionModal _actionModal;
+        private ActionResource _actionModal;
         public ActionModalPresenterResource(ModalAction action, Resource record)
         {
-            _actionModal = new ActionModal();
+            _actionModal = new ActionResource();
             _record = record;
             Init();
             Execute(action, record);

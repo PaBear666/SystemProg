@@ -5,27 +5,11 @@ using App.Entities;
 
 namespace App.Providers
 {
-    public class CSVProvider : IFileProvider<Resource>
+    public class CSVProvider : IFileProvider<FileRecord>
     {
         public string PathExtension => "csv";
 
-        public ICollection<Resource> LoadFromFile(string path)
-        {
-            List<Resource> resources = new List<Resource>();
-            foreach (string line in System.IO.File.ReadAllLines(path))
-            {
-                var parameters = line.Split(new[] { ';' });
-                var resource = new Resource(
-                    int.Parse(parameters[0]),
-                    parameters[1],
-                    bool.Parse(parameters[2]),
-                    System.DateTime.Parse(parameters[3]));
-                resources.Add(resource);
-            }
-            return resources;
-        }
-
-        public void UnLoadToFile(string path, Resource[] resources)
+        public void UnLoadToFile(string path, FileRecord[] resources)
         {
             using (StreamWriter stream = new StreamWriter(path, false))
             {
@@ -33,13 +17,29 @@ namespace App.Providers
                 {
                     var line = string.Format("{0};{1};{2};{3}",
                         resource.Id,
-                        resource.Address,
-                        resource.IsOpen,
-                        resource.AccessDate);
+                        resource.Path,
+                        resource.Size,
+                        resource.LastEditDate);
 
                     stream.WriteLine(line);
                 }
             }
+        }
+
+        public ICollection<FileRecord> LoadFromFile(string path)
+        {
+            List<FileRecord> records = new List<FileRecord>();
+            foreach (string line in File.ReadAllLines(path))
+            {
+                var parameters = line.Split(new[] { ';' });
+                var record = new FileRecord(
+                    int.Parse(parameters[0]),
+                    parameters[1],
+                    int.Parse(parameters[2]),
+                    System.DateTime.Parse(parameters[3]));
+                records.Add(record);
+            }
+            return records;
         }
     }
 }

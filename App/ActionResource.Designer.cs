@@ -1,7 +1,7 @@
 ﻿
 namespace App
 {
-    partial class ActionModal
+    partial class ActionResource
     {
         /// <summary>
         /// Required designer variable.
@@ -75,7 +75,6 @@ namespace App
             this.okBtn.TabIndex = 3;
             this.okBtn.Text = "OK";
             this.okBtn.UseVisualStyleBackColor = true;
-            
             // 
             // cancelBtn
             // 
@@ -85,7 +84,6 @@ namespace App
             this.cancelBtn.TabIndex = 4;
             this.cancelBtn.Text = "Отмена";
             this.cancelBtn.UseVisualStyleBackColor = true;
-            
             // 
             // textBox1
             // 
@@ -93,7 +91,6 @@ namespace App
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(127, 20);
             this.textBox1.TabIndex = 5;
-            
             // 
             // comboBox1
             // 
@@ -114,7 +111,7 @@ namespace App
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 9;
             // 
-            // ActionModal
+            // ActionResource
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -127,8 +124,8 @@ namespace App
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "ActionModal";
-            this.Text = "ActionModal";
+            this.Name = "ActionResource";
+            this.Text = "ActionResource";
             this.ResumeLayout(false);
             this.PerformLayout();
 

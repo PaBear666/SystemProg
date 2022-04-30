@@ -26,13 +26,13 @@ namespace App.Presenters
 
         public override void SetFileProvider()
         {
-            _fileExtension = _fileModel.SetFileProvider(new CSVProvider());
-            _client.fileTypeCB.SelectedIndex = 0;
+            _fileExtension = _fileModel.SetFileProvider(new PlainTextProvider());
+            _client.fileTypeCB.SelectedIndex = 1;
         }
 
         public override void UpdateTable(object sender, IList<Resource> resources)
         {
-            _client.dataGrid.Rows.Clear();
+            _dataGrid.Rows.Clear();
             for (int i = 0; i < resources.Count; i++)
             {
                 _dataGrid.Rows.Add();

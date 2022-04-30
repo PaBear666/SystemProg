@@ -39,9 +39,9 @@ namespace App.Controllers
                 if (resources.Select(r => r.Id).Distinct().Count() != resources.Count())
                 {
                     throw new NotUniqFieldException("Найдено не уникальное значение ресурса");
-                    _repository.AddNewRecords(resources.ToList());
-                    UpdateResourceHandler?.Invoke(_repository, _repository.GetAll().ToResource().ToList());
                 }
+                _repository.AddNewRecords(resources.ToList());
+                UpdateResourceHandler?.Invoke(_repository, _repository.GetAll());
 
             }
             catch(Exception e)

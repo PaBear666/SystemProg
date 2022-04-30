@@ -40,10 +40,6 @@ namespace App
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsOpen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccessDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dataGrid2 = new System.Windows.Forms.DataGridView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
@@ -58,6 +54,18 @@ namespace App
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.logtext = new System.Windows.Forms.RichTextBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Path = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsOpen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DllRecordDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -129,8 +137,7 @@ namespace App
             this.fileTypeCB.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.fileTypeCB.Items.AddRange(new object[] {
             "CSV",
-            "BINARY",
-            "XML"});
+            "PLAIN TEXT"});
             this.fileTypeCB.Location = new System.Drawing.Point(572, 370);
             this.fileTypeCB.Name = "fileTypeCB";
             this.fileTypeCB.Size = new System.Drawing.Size(220, 21);
@@ -184,45 +191,21 @@ namespace App
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(778, 289);
             this.tabPage4.TabIndex = 0;
-            this.tabPage4.Text = "Ресурсы";
+            this.tabPage4.Text = "Записи о ресурсах";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // dataGrid
             // 
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
+            this.dataGridViewTextBoxColumn2,
             this.Address,
             this.IsOpen,
-            this.AccessDate});
+            this.DllRecordDate});
             this.dataGrid.Location = new System.Drawing.Point(6, 6);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.Size = new System.Drawing.Size(766, 277);
             this.dataGrid.TabIndex = 1;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // Address
-            // 
-            this.Address.HeaderText = "Адрес";
-            this.Address.Name = "Address";
-            this.Address.ReadOnly = true;
-            // 
-            // IsOpen
-            // 
-            this.IsOpen.HeaderText = "Открытось";
-            this.IsOpen.Name = "IsOpen";
-            this.IsOpen.ReadOnly = true;
-            // 
-            // AccessDate
-            // 
-            this.AccessDate.HeaderText = "Дата доступа";
-            this.AccessDate.Name = "AccessDate";
-            this.AccessDate.ReadOnly = true;
             // 
             // tabPage5
             // 
@@ -232,16 +215,21 @@ namespace App
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(778, 289);
             this.tabPage5.TabIndex = 1;
-            this.tabPage5.Text = "Доступы";
+            this.tabPage5.Text = "Записи о файлах";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // dataGrid2
             // 
             this.dataGrid2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid2.Location = new System.Drawing.Point(28, 22);
+            this.dataGrid2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.Path,
+            this.Column1,
+            this.Column2});
+            this.dataGrid2.Location = new System.Drawing.Point(9, 7);
             this.dataGrid2.Name = "dataGrid2";
-            this.dataGrid2.Size = new System.Drawing.Size(240, 150);
-            this.dataGrid2.TabIndex = 0;
+            this.dataGrid2.Size = new System.Drawing.Size(779, 286);
+            this.dataGrid2.TabIndex = 1;
             // 
             // tabPage7
             // 
@@ -250,15 +238,20 @@ namespace App
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Size = new System.Drawing.Size(778, 289);
             this.tabPage7.TabIndex = 2;
-            this.tabPage7.Text = "Файлы";
+            this.tabPage7.Text = "Записи о dll";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // dataGrid3
             // 
             this.dataGrid3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid3.Location = new System.Drawing.Point(74, 43);
+            this.dataGrid3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column6,
+            this.Column3,
+            this.Column4,
+            this.Column5});
+            this.dataGrid3.Location = new System.Drawing.Point(6, 5);
             this.dataGrid3.Name = "dataGrid3";
-            this.dataGrid3.Size = new System.Drawing.Size(240, 150);
+            this.dataGrid3.Size = new System.Drawing.Size(878, 317);
             this.dataGrid3.TabIndex = 0;
             // 
             // comboBox1
@@ -365,6 +358,78 @@ namespace App
             this.logtext.TabIndex = 2;
             this.logtext.Text = "";
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // Path
+            // 
+            this.Path.HeaderText = "Path";
+            this.Path.Name = "Path";
+            this.Path.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Size";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "LastEditDate";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // Address
+            // 
+            this.Address.HeaderText = "Address";
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
+            // 
+            // IsOpen
+            // 
+            this.IsOpen.HeaderText = "IsOpen";
+            this.IsOpen.Name = "IsOpen";
+            this.IsOpen.ReadOnly = true;
+            // 
+            // DllRecordDate
+            // 
+            this.DllRecordDate.HeaderText = "AccessDate";
+            this.DllRecordDate.Name = "DllRecordDate";
+            this.DllRecordDate.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Id";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Name";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Version";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "LastEditDate";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -396,10 +461,6 @@ namespace App
         public System.Windows.Forms.TabPage tabPage2;
         public System.Windows.Forms.TabPage tabPage3;
         public System.Windows.Forms.DataGridView dataGrid;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Address;
-        public System.Windows.Forms.DataGridViewTextBoxColumn IsOpen;
-        public System.Windows.Forms.DataGridViewTextBoxColumn AccessDate;
         public System.Windows.Forms.ComboBox fileTypeCB;
         public System.Windows.Forms.Button loadFileBtn;
         public System.Windows.Forms.Button unloadFileBtn;
@@ -417,9 +478,21 @@ namespace App
         public System.Windows.Forms.TabPage tabPage5;
         public System.Windows.Forms.TabPage tabPage7;
         public System.Windows.Forms.TabPage tabPage6;
-        public System.Windows.Forms.DataGridView dataGrid2;
         public System.Windows.Forms.DataGridView dataGrid3;
         public System.Windows.Forms.RichTextBox logtext;
+        public System.Windows.Forms.DataGridView dataGrid2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Path;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsOpen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DllRecordDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }
 

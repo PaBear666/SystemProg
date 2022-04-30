@@ -5,9 +5,8 @@ using System;
 
 namespace App.Entities
 {
-    public class Resource : IEntity
+    public class Resource : IEntity<Resource>
     {
-        #region Properties 
 
         /// <summary>
         /// Идентификатор ресурса
@@ -29,10 +28,7 @@ namespace App.Entities
         /// </summary>
         public DateTime AccessDate { get; set; }
 
-        #endregion
-
-        #region Ctors
-
+        // Нужен для EF
         public Resource()
         {
 
@@ -53,11 +49,11 @@ namespace App.Entities
             AccessDate = accessDate;
         }
 
-        public void Update(IEntity newEntity)
+        public void Update(Resource newEntity)
         {
-            throw new NotImplementedException();
+            Address = newEntity.Address;
+            IsOpen = newEntity.IsOpen;
+            AccessDate = newEntity.AccessDate;
         }
-
-        #endregion
     }
 }
