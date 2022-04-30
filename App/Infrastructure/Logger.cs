@@ -22,7 +22,7 @@ namespace App.Infrastructure
             }
 
             stringBuilder.AppendLine($"Exception: {e}");
-            _textBox.Text = stringBuilder.ToString();
+            _textBox.Text += stringBuilder.ToString();
         }
     }
 }

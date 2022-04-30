@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App", "App\App.csproj", "{2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{5F49AE10-DF01-4E2B-9BA5-4E4E36977DBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LowLevelDivisionFunction", "LowLevelDivisionFunction\LowLevelDivisionFunction.csproj", "{1D4D461D-89D5-4F33-A2D9-39D85989FC9F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LowLevelFunction", "LowLevelDivisionFunction\LowLevelFunction.csproj", "{1D4D461D-89D5-4F33-A2D9-39D85989FC9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

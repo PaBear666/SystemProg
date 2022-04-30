@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace LowLevelDivisionFunction
 {
-    public class LowLevelDivUnFunction
+    public class CompareFunction
     {
         public static void Calculate()
         {
-            string FunctionName = "LowLevelDivUnFunction";
+            string FunctionName = "CompareFunction";
             string assemblyName = FunctionName;
             string modName = FunctionName + ".dll";
             string typeName = FunctionName + "DLL";
@@ -29,20 +29,20 @@ namespace LowLevelDivisionFunction
               TypeAttributes.Public);
 
             MethodBuilder methodBuilderCompare = typeBuilder.DefineMethod(
-                "Div_Un",
+                "Ceq",
                 MethodAttributes.Public,
                 typeof(int),
-                new Type[] { typeof(UInt32), typeof(UInt32) }
+                new Type[] { typeof(int), typeof(int) }
                 );
 
             var iLGenerator = methodBuilderCompare.GetILGenerator();
 
             iLGenerator.Emit(OpCodes.Ldarg_1);
             iLGenerator.Emit(OpCodes.Ldarg_2);
-            iLGenerator.Emit(OpCodes.Div_Un);
+            iLGenerator.Emit(OpCodes.Ceq);
             iLGenerator.Emit(OpCodes.Ret);
 
-            var ptType = typeBuilder.CreateType();
+            typeBuilder.CreateType();
 
             builder.Save(assemblyName + ".dll");
         }

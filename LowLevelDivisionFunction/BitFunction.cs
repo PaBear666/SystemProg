@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace LowLevelDivisionFunction
 {
-    public class LowLevelDivFunction
+    public class BitFunction
     {
         public static void Calculate()
         {
-            string FunctionName = "LowLevelDivFunction";
+            string FunctionName = "BitFunction";
             string assemblyName = FunctionName;
             string modName = FunctionName + ".dll";
             string typeName = FunctionName + "DLL";
@@ -29,20 +29,20 @@ namespace LowLevelDivisionFunction
               TypeAttributes.Public);
 
             MethodBuilder methodBuilderCompare = typeBuilder.DefineMethod(
-                "Div",
+                "And",
                 MethodAttributes.Public,
-                typeof(float),
-                new Type[] { typeof(float), typeof(float) }
+                typeof(int),
+                new Type[] { typeof(int), typeof(int) }
                 );
 
             var iLGenerator = methodBuilderCompare.GetILGenerator();
 
             iLGenerator.Emit(OpCodes.Ldarg_1);
             iLGenerator.Emit(OpCodes.Ldarg_2);
-            iLGenerator.Emit(OpCodes.Div);// деление - Div
+            iLGenerator.Emit(OpCodes.And);
             iLGenerator.Emit(OpCodes.Ret);
 
-            var ptType = typeBuilder.CreateType();
+            typeBuilder.CreateType();
 
             builder.Save(assemblyName + ".dll");
         }

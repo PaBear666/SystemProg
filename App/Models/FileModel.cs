@@ -67,7 +67,7 @@ namespace App.Controllers
                 _repository.RemoveRecord(id);
                 UpdateResourceHandler(_repository, _repository.GetAll());
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 _logger.LogError(new NotFoundException($"Не было найдено записи с id = {id}"));
             }

@@ -1,38 +1,85 @@
 ﻿using App.Controllers.Abstractions;
+using App.Exceptions;
+using App.Infrastructure;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace App.Entities
 {
     class ClientPresenterLowLevel : IDisposable
     {
         private readonly Client _client;
-        readonly ILowLevelModel _lowLevelModel; 
+        private readonly ILowLevelModel _lowLevelModel;
+        private readonly ILogger _logger;
 
-        //Client client, IFileModel fileModel
-        public ClientPresenterLowLevel(Client client,ILowLevelModel lowLevelModel)
+        public ClientPresenterLowLevel(Client client,ILowLevelModel lowLevelModel, ILogger logger)
         {
+            _logger = logger;
+            _client = client;
+            _lowLevelModel = lowLevelModel;
+            Init();
+        }
 
+        private void Init()
+        {
+            _client.button2.Click += Div;
+            _client.button3.Click += Compare;
+            _client.button4.Click += BitAnd;
+        }
+
+        private void BitAnd(object sender, EventArgs e)
+        {
+            try
+            {
+                int a = int.Parse(_client.textBox1.Text);
+                int b = int.Parse(_client.textBox2.Text);
+
+                _client.textBox3.Text = _lowLevelModel.GetResultBitAnd(a, b).ToString();
+
+            }
+            catch (Exception)
+            {
+                _logger.LogError(new WrongFormatException(), "Неверный формат у операндов");
+            }
+        }
+
+        private void Compare(object sender, EventArgs e)
+        {
+            try
+            {
+                int a = int.Parse(_client.textBox1.Text);
+                int b = int.Parse(_client.textBox2.Text);
+
+                _client.textBox3.Text = _lowLevelModel.GetResultCompare(a, b).ToString();
+
+            }
+            catch(Exception)
+            {
+                _logger.LogError(new WrongFormatException(), "Неверный формат у операндов");
+            }
             
         }
 
         private void Div(object sender, EventArgs e)
         {
+            try
+            {
+                uint a = uint.Parse(_client.textBox1.Text);
+                uint b = uint.Parse(_client.textBox2.Text);
 
-            
-        }
-        private void Div_Un(object sender, EventArgs e)
-        {
+                _client.textBox3.Text = _lowLevelModel.GetResultDivUn(a, b).ToString();
 
-            
+            }
+            catch (Exception)
+            {
+                _logger.LogError(new WrongFormatException(), "Неверный формат у операндов");
+            }
         }
+
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _client.button2.Click -= Div;
+            _client.button3.Click -= Compare;
+            _client.button4.Click -= BitAnd;
         }
     }
 }

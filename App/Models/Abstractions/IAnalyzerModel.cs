@@ -1,4 +1,5 @@
 ﻿using App.Infrastructure;
+using System.Windows.Forms;
 
 namespace App.Controllers.Abstractions
 {
@@ -10,5 +11,12 @@ namespace App.Controllers.Abstractions
         /// <param name="code">Код</param>
         /// <returns>Результат обработки</returns>
         AnalyzerResult Execute(string code);
+
+        
+        /// <summary>
+        /// Установить конструкцию C#
+        /// </summary>
+        /// <param name="design">конструкция C#</param>
+        void SetDesign(CsharpDesign design);
     }
 }

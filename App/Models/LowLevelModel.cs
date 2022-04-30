@@ -11,24 +11,38 @@ namespace App.Controllers
         private MethodInfo _method;
         public LowLevelModel()
         {
-            LowLevelDivFunction.Calculate();
-            LowLevelDivUnFunction.Calculate();
+            CompareFunction.Calculate();
+            DivUnFunction.Calculate();      
+            BitFunction.Calculate();
         }
 
-        public float GetResultDiv(float a, float b)
+        public int GetResultBitAnd(int a, int b)
         {
-            string functionName = "LowLevelDivFunction";
+            string functionName = "BitFunction";
             string modName = functionName + ".dll";
             string typeName = functionName + "DLL";
             Assembly asm = Assembly.Load(File.ReadAllBytes(modName));
             Type t = asm.GetType(typeName);
-            _method = t.GetMethod("Div", BindingFlags.Instance | BindingFlags.Public);
+            _method = t.GetMethod("And", BindingFlags.Instance | BindingFlags.Public);
             _instance = Activator.CreateInstance(t);
-            return (float)_method.Invoke(_instance, new object[] { a, b }); ;
+            return (int)_method.Invoke(_instance, new object[] { a, b });
         }
+
+        public bool GetResultCompare(int a, int b)
+        {
+            string functionName = "CompareFunction";
+            string modName = functionName + ".dll";
+            string typeName = functionName + "DLL";
+            Assembly asm = Assembly.Load(File.ReadAllBytes(modName));
+            Type t = asm.GetType(typeName);
+            _method = t.GetMethod("Ceq", BindingFlags.Instance | BindingFlags.Public);
+            _instance = Activator.CreateInstance(t);
+            return (int)_method.Invoke(_instance, new object[] { a, b }) == 1;
+        }
+
         public int GetResultDivUn(UInt32 a, UInt32 b)
         {
-            string functionName = "LowLevelDivUnFunction";
+            string functionName = "DivUnFunction";
             string modName = functionName + ".dll";
             string typeName = functionName + "DLL";
             Assembly asm = Assembly.Load(File.ReadAllBytes(modName));

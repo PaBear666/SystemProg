@@ -77,8 +77,10 @@
     <Compile Include="ActionResource.Designer.cs">
       <DependentUpon>ActionResource.cs</DependentUpon>
     </Compile>
+    <Compile Include="CsharpDesign.cs" />
     <Compile Include="Entities\DllRecord.cs" />
     <Compile Include="Entities\FileRecord.cs" />
+    <Compile Include="Exceptions\WrongFormatException.cs" />
     <Compile Include="Infrastructure\Context.cs" />
     <Compile Include="Models\Abstractions\ILowLevelModel.cs" />
     <Compile Include="Models\Abstractions\IFileModel.cs" />
@@ -154,9 +156,9 @@
       <Project>{5f49ae10-df01-4e2b-9ba5-4e4e36977dbf}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LowLevelDivisionFunction\LowLevelDivisionFunction.csproj">
+    <ProjectReference Include="..\LowLevelDivisionFunction\LowLevelFunction.csproj">
       <Project>{1d4d461d-89d5-4f33-a2d9-39d85989fc9f}</Project>
-      <Name>LowLevelDivisionFunction</Name>
+      <Name>LowLevelFunction</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

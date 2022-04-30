@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LowLevelDivUnFunction.cs" />
-    <Compile Include="LowLevelDivFunction.cs" />
+    <Compile Include="BitFunction.cs" />
+    <Compile Include="CompareFunction.cs" />
+    <Compile Include="DivUnFunction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

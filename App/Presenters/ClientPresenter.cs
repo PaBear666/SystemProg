@@ -20,7 +20,7 @@ namespace App.Entities
             _logger = new Logger(_client.logtext);
             _clientPresenterFile = new ClientPresenterFileResource(_client, new FileModel<Resource>(_logger), new FileRepository<Resource>());
             _analyzerPresenter = new ClientPresenterAnalyzer(_client, new AnalyzerModel(_logger));
-            _lowLevelPresenter = new ClientPresenterLowLevel(_client, new LowLevelModel());
+            _lowLevelPresenter = new ClientPresenterLowLevel(_client, new LowLevelModel(), _logger);
 
             _client.tabControl2.Selected += TabControl2_Selected;
             Application.Run(_client);
