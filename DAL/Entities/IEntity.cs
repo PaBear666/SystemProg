@@ -8,7 +8,7 @@ namespace DAL.Entities
     }
 
     public interface IEntity<T> : IEntity
-        where T : IEntity
+        where T : class
     {
         void Update(T newEntity);
     }

@@ -52,7 +52,6 @@ namespace App
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.outputVS = new System.Windows.Forms.RichTextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.logtext = new System.Windows.Forms.RichTextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Path = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +65,10 @@ namespace App
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -76,7 +79,7 @@ namespace App
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid3)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.tabPage6.SuspendLayout();
+            this.tabControl3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -84,7 +87,6 @@ namespace App
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Location = new System.Drawing.Point(12, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -268,6 +270,7 @@ namespace App
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.tabControl3);
             this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.inputVS);
             this.tabPage2.Controls.Add(this.label1);
@@ -283,18 +286,18 @@ namespace App
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(449, 393);
+            this.button1.Location = new System.Drawing.Point(456, 28);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(269, 49);
             this.button1.TabIndex = 5;
-            this.button1.Text = "Запустить";
+            this.button1.Text = "Run";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // inputVS
             // 
-            this.inputVS.BackColor = System.Drawing.SystemColors.MenuText;
+            this.inputVS.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.inputVS.ForeColor = System.Drawing.SystemColors.Info;
-            this.inputVS.Location = new System.Drawing.Point(37, 31);
+            this.inputVS.Location = new System.Drawing.Point(37, 174);
             this.inputVS.Name = "inputVS";
             this.inputVS.Size = new System.Drawing.Size(743, 142);
             this.inputVS.TabIndex = 0;
@@ -303,7 +306,7 @@ namespace App
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(446, 275);
+            this.label1.Location = new System.Drawing.Point(418, 98);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 13);
             this.label1.TabIndex = 3;
@@ -311,7 +314,7 @@ namespace App
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(618, 268);
+            this.textBox1.Location = new System.Drawing.Point(590, 91);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(100, 20);
@@ -319,9 +322,9 @@ namespace App
             // 
             // outputVS
             // 
-            this.outputVS.BackColor = System.Drawing.SystemColors.InfoText;
+            this.outputVS.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.outputVS.ForeColor = System.Drawing.SystemColors.Info;
-            this.outputVS.Location = new System.Drawing.Point(37, 302);
+            this.outputVS.Location = new System.Drawing.Point(37, 28);
             this.outputVS.Name = "outputVS";
             this.outputVS.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.outputVS.Size = new System.Drawing.Size(353, 140);
@@ -337,24 +340,14 @@ namespace App
             this.tabPage3.Text = "Низкий уровень";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.logtext);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(798, 461);
-            this.tabPage6.TabIndex = 3;
-            this.tabPage6.Text = "Логи";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
             // logtext
             // 
             this.logtext.BackColor = System.Drawing.SystemColors.InfoText;
             this.logtext.ForeColor = System.Drawing.SystemColors.Info;
-            this.logtext.Location = new System.Drawing.Point(3, 14);
+            this.logtext.Location = new System.Drawing.Point(16, 491);
             this.logtext.Name = "logtext";
             this.logtext.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.logtext.Size = new System.Drawing.Size(756, 402);
+            this.logtext.Size = new System.Drawing.Size(798, 138);
             this.logtext.TabIndex = 2;
             this.logtext.Text = "";
             // 
@@ -430,11 +423,52 @@ namespace App
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tabPage8);
+            this.tabControl3.Controls.Add(this.tabPage9);
+            this.tabControl3.Controls.Add(this.tabPage10);
+            this.tabControl3.Location = new System.Drawing.Point(37, 322);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(743, 132);
+            this.tabControl3.TabIndex = 6;
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(735, 106);
+            this.tabPage8.TabIndex = 0;
+            this.tabPage8.Text = "do while";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(735, 106);
+            this.tabPage9.TabIndex = 1;
+            this.tabPage9.Text = "while";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // tabPage10
+            // 
+            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Size = new System.Drawing.Size(735, 106);
+            this.tabPage10.TabIndex = 2;
+            this.tabPage10.Text = "if";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(830, 490);
+            this.ClientSize = new System.Drawing.Size(825, 641);
+            this.Controls.Add(this.logtext);
             this.Controls.Add(this.tabControl1);
             this.Name = "Client";
             this.Text = "Form1";
@@ -449,7 +483,7 @@ namespace App
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid3)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.tabPage6.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -477,7 +511,6 @@ namespace App
         public System.Windows.Forms.TabPage tabPage4;
         public System.Windows.Forms.TabPage tabPage5;
         public System.Windows.Forms.TabPage tabPage7;
-        public System.Windows.Forms.TabPage tabPage6;
         public System.Windows.Forms.DataGridView dataGrid3;
         public System.Windows.Forms.RichTextBox logtext;
         public System.Windows.Forms.DataGridView dataGrid2;
@@ -493,6 +526,10 @@ namespace App
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.TabPage tabPage10;
     }
 }
 

@@ -33,9 +33,10 @@ namespace App.Controllers
 
         public void LoadFromFile(string path)
         {
-            var resources = _fileProvider.LoadFromFile(path);
             try
             {
+                var resources = _fileProvider.LoadFromFile(path);
+
                 if (resources.Select(r => r.Id).Distinct().Count() != resources.Count())
                 {
                     throw new NotUniqFieldException("Найдено не уникальное значение ресурса");
@@ -43,6 +44,10 @@ namespace App.Controllers
                 _repository.AddNewRecords(resources.ToList());
                 UpdateResourceHandler?.Invoke(_repository, _repository.GetAll());
 
+            }
+            catch(FormatException e)
+            {
+                _logger.LogError(e, "Неверный формат");
             }
             catch(Exception e)
             {

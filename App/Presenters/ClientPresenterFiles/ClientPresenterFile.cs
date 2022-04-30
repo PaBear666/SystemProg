@@ -104,7 +104,7 @@ namespace App.Presenters
 
         public void UnloadFileBtn_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog dialog = new OpenFileDialog())
+            using (SaveFileDialog dialog = new SaveFileDialog())
             {
                 dialog.Filter = $"All files of type|*.{_fileExtension}";
                 dialog.FilterIndex = 1;
