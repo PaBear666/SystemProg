@@ -1,21 +1,21 @@
 ﻿using DAL.Providers.Abstractions;
 using System.Collections.Generic;
 using System.IO;
-using DAL.Entities;
+using App.Entities;
 
-namespace DAL.Providers
+namespace App.Providers
 {
-    public class CSVProvider : IFileProvider
+    public class CSVProvider : IFileProvider<Resource>
     {
         public string PathExtension => "csv";
 
-        public ICollection<ResourceEntity> LoadFromFile(string path)
+        public ICollection<Resource> LoadFromFile(string path)
         {
-            List<ResourceEntity> resources = new List<ResourceEntity>();
-            foreach (string line in File.ReadAllLines(path))
+            List<Resource> resources = new List<Resource>();
+            foreach (string line in System.IO.File.ReadAllLines(path))
             {
                 var parameters = line.Split(new[] { ';' });
-                var resource = new ResourceEntity(
+                var resource = new Resource(
                     int.Parse(parameters[0]),
                     parameters[1],
                     bool.Parse(parameters[2]),
@@ -25,7 +25,7 @@ namespace DAL.Providers
             return resources;
         }
 
-        public void UnLoadToFile(string path, ResourceEntity[] resources)
+        public void UnLoadToFile(string path, Resource[] resources)
         {
             using (StreamWriter stream = new StreamWriter(path, false))
             {

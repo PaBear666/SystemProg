@@ -1,25 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using App.Presenters;
+using System;
 using System.Windows.Forms;
 
-namespace App.Presenters
+namespace App.Entities
 {
-    class ActionModalPresenter
+    class ActionModalPresenterResource : IActionModalPresenter<Resource>
     {
         private Resource _record;
         private ActionModal _actionModal;
-        public ActionModalPresenter(ModalAction action, Resource record, ActionModal actionModal)
+        public ActionModalPresenterResource(ModalAction action, Resource record)
         {
-            _actionModal = actionModal;
+            _actionModal = new ActionModal();
             _record = record;
             Init();
             Execute(action, record);
         }
 
-        public void Init()
+        private void Init()
         {
             _actionModal.okBtn.Click += new System.EventHandler(this.OKBtn_Click);
             _actionModal.cancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);

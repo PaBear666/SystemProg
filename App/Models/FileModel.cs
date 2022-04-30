@@ -7,27 +7,28 @@ using System.Linq;
 using App.Infrastructure;
 using DAL.Repositories;
 using DAL.Exceptions;
-using App.Presenters;
+using App.Entities;
 
 namespace App.Controllers
 {
-    internal class FileModel : IFileModel
+    internal class FileModel<T> : IFileModel<T>
+        where T : class, IEntity
     {
         private readonly ILogger _logger;
-        private IRepository _repository; 
-        private IFileProvider _fileProvider;
+        private IRepository<T> _repository; 
+        private IFileProvider<T> _fileProvider;
 
-        public event EventHandler<IList<Resource>> UpdateResourceHandler;
+        public event EventHandler<IList<T>> UpdateResourceHandler;
 
         public FileModel(ILogger logger)
         {
             _logger = logger;
         }
 
-        public void AddRecord(ResourceEntity resource)
+        public void AddRecord(T resource)
         {
             _repository.AddRecord(resource);
-            UpdateResourceHandler(_repository,_repository.GetAll().ToResource().ToList());
+            UpdateResourceHandler(_repository,_repository.GetAll());
         }
 
         public void LoadFromFile(string path)
@@ -59,7 +60,7 @@ namespace App.Controllers
             try
             {
                 _repository.RemoveRecord(id);
-                UpdateResourceHandler(_repository, _repository.GetAll().ToResource().ToList());
+                UpdateResourceHandler(_repository, _repository.GetAll());
             }
             catch(Exception e)
             {
@@ -68,27 +69,27 @@ namespace App.Controllers
             
         }
 
-        public ResourceEntity GetById(int id)
+        public T GetById(int id)
         {
             return _repository.GetById(id);
         }
 
-        public void UpdateRecord(int id, ResourceEntity newResource)
+        public void UpdateRecord(int id, T newResource)
         {
             _repository.UpdateRecord(id, newResource);
-            UpdateResourceHandler(_repository, _repository.GetAll().ToResource().ToList());
+            UpdateResourceHandler(_repository, _repository.GetAll());
         }
 
-        public string SetFileProvider(IFileProvider fileProvider)
+        public string SetFileProvider(IFileProvider<T> fileProvider)
         {
             _fileProvider = fileProvider;
             return _fileProvider.PathExtension;
         }
 
-        public void SetRepository(IRepository repository)
+        public void SetRepository(IRepository<T> repository)
         {
             _repository = repository;
-            UpdateResourceHandler(_repository, _repository.GetAll().ToResource().ToList());
+            UpdateResourceHandler(_repository, _repository.GetAll());
         }
     }
 }

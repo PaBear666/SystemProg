@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DAL.Entities;
+using App.Providers;
+using DAL.Providers.Abstractions;
+using System;
 
-namespace App.Presenters
+namespace App.Entities
 {
-    public class Resource
+    public class Resource : IEntity
     {
         #region Properties 
 
@@ -52,6 +51,11 @@ namespace App.Presenters
             Address = address;
             IsOpen = isOpen;
             AccessDate = accessDate;
+        }
+
+        public void Update(IEntity newEntity)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

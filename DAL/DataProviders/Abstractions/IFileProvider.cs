@@ -3,7 +3,8 @@ using DAL.Entities;
 
 namespace DAL.Providers.Abstractions
 {
-    public interface IFileProvider
+    public interface IFileProvider<T>
+        where T:class,IEntity
     {
         /// <summary>
         /// Расширение файла
@@ -14,13 +15,13 @@ namespace DAL.Providers.Abstractions
         /// </summary>
         /// <param name="file">Путь до файла</param>
         /// <returns>Коллекция ресурсов</returns>
-        ICollection<ResourceEntity> LoadFromFile(string path);
+        ICollection<T> LoadFromFile(string path);
 
         /// <summary>
         /// Загрузить записи в файл
         /// </summary>
         /// <param name="path">Путь до файла</param>
         /// <param name="resources">Ресурсы</param>
-        void UnLoadToFile(string path, ResourceEntity[] resources); 
+        void UnLoadToFile(string path, T[] resources); 
     }
 }

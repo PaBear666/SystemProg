@@ -1,82 +1,82 @@
 ﻿using DAL.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 
 namespace DAL.Repositories
 {
-    public class DbRepository : IRepository
+    public class DbRepository<T> : IRepository<T>
+        where T: class,IEntity
     {
-        private readonly string _connectionString;
+        private Func<DbContext> _getContext;
 
-        public DbRepository(string connection)
+        public DbRepository(Func<DbContext> getContext)
         {
-            _connectionString = connection;
+            _getContext = getContext;
         }
 
-        public void AddRecord(ResourceEntity resource)
+        public void AddRecord(T resource)
         {
-            using (Context.Context context = new Context.Context(_connectionString))
+            using (var context = _getContext())
             {
-                context.Set<ResourceEntity>().Add(resource);
+                context.Set<T>().Add(resource);
                 context.SaveChanges();
             }
         }
 
-        public ResourceEntity GetById(int id)
+        public T GetById(int id)
         {
-            using (Context.Context context = new Context.Context(_connectionString))
+            using (var context = _getContext())
             {
-                return context.Resources.Where(r => r.Id == id).FirstOrDefault();
+                return context.Set<T>().Where(r => r.Id == id).FirstOrDefault();
             }
         }
 
-        private ResourceEntity GetById(int id, Context.Context context)
+        private T GetById(int id, DbContext context)
         {
-            return context.Resources.Where(r => r.Id == id).FirstOrDefault();
+            return context.Set<T>().Where(r => r.Id == id).FirstOrDefault();
         }
 
         public void RemoveRecord(int id)
         {
-            using (Context.Context context = new Context.Context(_connectionString))
+            using (var context = _getContext())
             {
-                context.Resources.Remove(GetById(id,context));
+                context.Set<T>().Remove(GetById(id,context));
                 context.SaveChanges();
             }
         }
 
-        public void UpdateRecord(int id, ResourceEntity newResource)
+        public void UpdateRecord(int id, T newResource)
         {
-            using (Context.Context context = new Context.Context(_connectionString))
+            using (var context = _getContext())
             {
                 var resource = GetById(id,context);
-                resource.Address = newResource.Address;
-                resource.AccessDate = newResource.AccessDate;
-                resource.IsOpen = newResource.IsOpen;
+                resource.Update(newResource);
                 context.SaveChanges();
             }
         }
 
-        public IList<ResourceEntity> GetAll()
+        public IList<T> GetAll()
         {
-            using (Context.Context context = new Context.Context(_connectionString))
+            using (var context = _getContext())
             {
-                return context.Resources.ToList();
+                return context.Set<T>().ToList();
             }
         }
 
-        private IList<ResourceEntity> GetAll(Context.Context context)
+        private IList<T> GetAll(DbContext context)
         {
-            return context.Resources.ToList();
+            return context.Set<T>().ToList();
         }
 
-        public void AddNewRecords(IList<ResourceEntity> resources)
+        public void AddNewRecords(IList<T> resources)
         {
-            using (Context.Context context = new Context.Context(_connectionString))
+            using (var context = _getContext())
             {
-                context.Resources.RemoveRange(GetAll(context));
-                context.Resources.AddRange(resources);
+                context.Set<T>().RemoveRange(GetAll(context));
+                context.Set<T>().AddRange(resources);
                 context.SaveChanges();
             }
         }

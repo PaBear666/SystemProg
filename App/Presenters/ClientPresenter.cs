@@ -1,13 +1,10 @@
 ﻿using App.Controllers;
-using App.Controllers.Abstractions;
 using App.Infrastructure;
-using DAL.Providers;
+using App.Presenters;
 using DAL.Repositories;
-using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace App.Presenters
+namespace App.Entities
 {
     public class ClientPresenter
     {
@@ -20,16 +17,30 @@ namespace App.Presenters
         public ClientPresenter(Client client)
         {
             _client = client;
-            _logger = new Logger();
-            _clientPresenterFile = new ClientPresenterFile(_client, new FileModel(_logger));
+            _logger = new Logger(_client.logtext);
+            _clientPresenterFile = new ClientPresenterFileResource(_client, new FileModel<Resource>(_logger), new FileRepository<Resource>());
             _analyzerModel = new ClientPresenterAnalyzer(_client, new AnalyzerModel(_logger));
-            _lowLevelModel = new ClientPresenterLowLevel(_client, new LowLevelModel());//добавил параметр
+            _lowLevelModel = new ClientPresenterLowLevel();
+
+            _client.tabControl2.Selected += TabControl2_Selected;
             Application.Run(_client);
         }
-
-        #region Analyzer
-
-        #endregion
-
+        private void TabControl2_Selected(object sender, TabControlEventArgs e)
+        {
+            _clientPresenterFile?.Dispose();
+            switch (e.TabPage.Text)
+            {
+                case "Ресурсы":
+                    _clientPresenterFile = new ClientPresenterFileResource(_client, new FileModel<Resource>(_logger), new FileRepository<Resource>());
+                    break;
+                case "Доступы":
+                    _clientPresenterFile = new ClientPresenterFileAccess(_client, new FileModel<Access>(_logger), new FileRepository<Access>());
+                    break;
+                case "Файлы":
+                    _clientPresenterFile = new ClientPresenterFileFile(_client, new FileModel<File>(_logger), new FileRepository<File>());
+                    break;
+            }
+            _client.comboBox1.SelectedIndex = 1;
+        }
     }
 }

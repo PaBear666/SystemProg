@@ -1,4 +1,4 @@
-﻿using App.Presenters;
+﻿using App.Entities;
 using DAL.Entities;
 using DAL.Providers.Abstractions;
 using DAL.Repositories;
@@ -7,12 +7,13 @@ using System.Collections.Generic;
 
 namespace App.Controllers.Abstractions
 {
-    public interface IFileModel
+    public interface IFileModel<T> 
+        where T : class,IEntity
     {
         /// <summary>
         /// Обработчик изменения списка
         /// </summary>
-        event EventHandler<IList<Resource>> UpdateResourceHandler;
+        event EventHandler<IList<T>> UpdateResourceHandler;
 
         /// <summary>
         /// Установить провайдер для работы с файлом
@@ -20,18 +21,18 @@ namespace App.Controllers.Abstractions
         /// <param name="fileProvider">Провайдер</param>
         /// <param name="repository">Репозиторий</param>
         /// <returns>Тип расширения</returns>
-        string SetFileProvider(IFileProvider fileProvider);
+        string SetFileProvider(IFileProvider<T> fileProvider);
 
         /// <summary>
         /// Установить репозиторий
         /// </summary>
         /// <param name="repository">Репозиторий</param>
-        void SetRepository(IRepository repository);
+        void SetRepository(IRepository<T> repository);
 
         /// <summary>
         /// Добавить запись
         /// </summary>
-        void AddRecord(ResourceEntity resource);
+        void AddRecord(T resource);
 
         /// <summary>
         /// Удалить запись
@@ -44,7 +45,7 @@ namespace App.Controllers.Abstractions
         /// </summary>
         /// <param name="id">Идентификатор записи</param>
         /// <param name="newResource">Измененый ресурс</param>
-        void UpdateRecord(int id, ResourceEntity newResource);
+        void UpdateRecord(int id, T newResource);
 
         /// <summary>
         /// Загрузить записи из файла
@@ -63,6 +64,6 @@ namespace App.Controllers.Abstractions
         /// </summary>
         /// <param name="id">Идентификатор записи</param>
         /// <returns>Ресурс</returns>
-        ResourceEntity GetById(int id);
+        T GetById(int id);
     }
 }

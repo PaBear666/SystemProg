@@ -15,7 +15,7 @@ namespace App.Controllers
 
         public AnalyzerResult Execute(string code)
         { 
-            Context context = new Context(code);
+            Analyzer context = new Analyzer(code);
             return context.Result;
         }
     }
