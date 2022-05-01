@@ -35,7 +35,6 @@ namespace App.Presenters
 
         public void Init()
         {
-            _client.fileTypeCB.SelectedIndexChanged += new EventHandler(EnableBtnWorkWithFile_SelectedIndexChanged);
             _client.loadFileBtn.Click += new EventHandler(UnloadFileBtn_Click);
             _client.unloadFileBtn.Click += new EventHandler(LoadFileBtn_Click);
             _client.addRecordBtn.Click += new EventHandler(AddRecordBtn_Click);
@@ -127,14 +126,12 @@ namespace App.Presenters
 
         public void EnableBtnWorkWithFile_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _client.fileTypeCB.SelectedIndexChanged -= EnableBtnWorkWithFile_SelectedIndexChanged;
             _client.loadFileBtn.Enabled = true;
             _client.unloadFileBtn.Enabled = true;
         }
 
         public override void Dispose()
         {
-            _client.fileTypeCB.SelectedIndexChanged -= new EventHandler(EnableBtnWorkWithFile_SelectedIndexChanged);
             _client.loadFileBtn.Click -= new EventHandler(UnloadFileBtn_Click);
             _client.unloadFileBtn.Click -= new EventHandler(LoadFileBtn_Click);
             _client.addRecordBtn.Click -= new EventHandler(AddRecordBtn_Click);

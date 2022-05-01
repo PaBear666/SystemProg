@@ -26,7 +26,7 @@ namespace App.Presenters
         public override void SetFileProvider()
         {
             _fileExtension = _fileModel.SetFileProvider(new PlainTextProvider());
-            _client.fileTypeCB.SelectedIndex = 1;
+            _client.textBox4.Text = "Plain Text";
         }
 
         public override void UpdateTable(object sender, IList<DllRecord> resources)

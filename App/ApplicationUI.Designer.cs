@@ -31,9 +31,9 @@ namespace App
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.unloadFileBtn = new System.Windows.Forms.Button();
             this.loadFileBtn = new System.Windows.Forms.Button();
-            this.fileTypeCB = new System.Windows.Forms.ComboBox();
             this.updateRecordBtn = new System.Windows.Forms.Button();
             this.addRecordBtn = new System.Windows.Forms.Button();
             this.deleteRecordBtn = new System.Windows.Forms.Button();
@@ -109,9 +109,9 @@ namespace App
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.textBox4);
             this.tabPage1.Controls.Add(this.unloadFileBtn);
             this.tabPage1.Controls.Add(this.loadFileBtn);
-            this.tabPage1.Controls.Add(this.fileTypeCB);
             this.tabPage1.Controls.Add(this.updateRecordBtn);
             this.tabPage1.Controls.Add(this.addRecordBtn);
             this.tabPage1.Controls.Add(this.deleteRecordBtn);
@@ -125,44 +125,36 @@ namespace App
             this.tabPage1.Text = "Работа с файлами";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(672, 51);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 11;
+            // 
             // unloadFileBtn
             // 
-            this.unloadFileBtn.Enabled = false;
-            this.unloadFileBtn.Location = new System.Drawing.Point(623, 426);
+            this.unloadFileBtn.Location = new System.Drawing.Point(672, 128);
             this.unloadFileBtn.Name = "unloadFileBtn";
-            this.unloadFileBtn.Size = new System.Drawing.Size(129, 23);
+            this.unloadFileBtn.Size = new System.Drawing.Size(103, 23);
             this.unloadFileBtn.TabIndex = 4;
             this.unloadFileBtn.Text = "Открыть";
             this.unloadFileBtn.UseVisualStyleBackColor = true;
             // 
             // loadFileBtn
             // 
-            this.loadFileBtn.Enabled = false;
-            this.loadFileBtn.Location = new System.Drawing.Point(623, 397);
+            this.loadFileBtn.Location = new System.Drawing.Point(672, 87);
             this.loadFileBtn.Name = "loadFileBtn";
-            this.loadFileBtn.Size = new System.Drawing.Size(129, 23);
+            this.loadFileBtn.Size = new System.Drawing.Size(103, 23);
             this.loadFileBtn.TabIndex = 3;
             this.loadFileBtn.Text = "Сохранить";
             this.loadFileBtn.UseVisualStyleBackColor = true;
             // 
-            // fileTypeCB
-            // 
-            this.fileTypeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.fileTypeCB.Enabled = false;
-            this.fileTypeCB.FormattingEnabled = true;
-            this.fileTypeCB.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fileTypeCB.Items.AddRange(new object[] {
-            "CSV",
-            "PLAIN TEXT"});
-            this.fileTypeCB.Location = new System.Drawing.Point(572, 370);
-            this.fileTypeCB.Name = "fileTypeCB";
-            this.fileTypeCB.Size = new System.Drawing.Size(220, 21);
-            this.fileTypeCB.TabIndex = 2;
-            // 
             // updateRecordBtn
             // 
             this.updateRecordBtn.Enabled = false;
-            this.updateRecordBtn.Location = new System.Drawing.Point(23, 417);
+            this.updateRecordBtn.Location = new System.Drawing.Point(35, 145);
             this.updateRecordBtn.Name = "updateRecordBtn";
             this.updateRecordBtn.Size = new System.Drawing.Size(127, 23);
             this.updateRecordBtn.TabIndex = 7;
@@ -171,7 +163,7 @@ namespace App
             // 
             // addRecordBtn
             // 
-            this.addRecordBtn.Location = new System.Drawing.Point(23, 359);
+            this.addRecordBtn.Location = new System.Drawing.Point(35, 87);
             this.addRecordBtn.Name = "addRecordBtn";
             this.addRecordBtn.Size = new System.Drawing.Size(127, 23);
             this.addRecordBtn.TabIndex = 5;
@@ -181,7 +173,7 @@ namespace App
             // deleteRecordBtn
             // 
             this.deleteRecordBtn.Enabled = false;
-            this.deleteRecordBtn.Location = new System.Drawing.Point(23, 388);
+            this.deleteRecordBtn.Location = new System.Drawing.Point(35, 116);
             this.deleteRecordBtn.Name = "deleteRecordBtn";
             this.deleteRecordBtn.Size = new System.Drawing.Size(127, 23);
             this.deleteRecordBtn.TabIndex = 6;
@@ -193,10 +185,10 @@ namespace App
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Controls.Add(this.tabPage5);
             this.tabControl2.Controls.Add(this.tabPage7);
-            this.tabControl2.Location = new System.Drawing.Point(6, 38);
+            this.tabControl2.Location = new System.Drawing.Point(178, 29);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(786, 315);
+            this.tabControl2.Size = new System.Drawing.Size(459, 315);
             this.tabControl2.TabIndex = 10;
             // 
             // tabPage4
@@ -205,7 +197,7 @@ namespace App
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(778, 289);
+            this.tabPage4.Size = new System.Drawing.Size(451, 289);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "Записи о ресурсах";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -218,9 +210,9 @@ namespace App
             this.Address,
             this.IsOpen,
             this.DllRecordDate});
-            this.dataGrid.Location = new System.Drawing.Point(6, 6);
+            this.dataGrid.Location = new System.Drawing.Point(5, 0);
             this.dataGrid.Name = "dataGrid";
-            this.dataGrid.Size = new System.Drawing.Size(766, 277);
+            this.dataGrid.Size = new System.Drawing.Size(443, 277);
             this.dataGrid.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn2
@@ -228,6 +220,7 @@ namespace App
             this.dataGridViewTextBoxColumn2.HeaderText = "Id";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Visible = false;
             // 
             // Address
             // 
@@ -253,7 +246,7 @@ namespace App
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(778, 289);
+            this.tabPage5.Size = new System.Drawing.Size(451, 289);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "Записи о файлах";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -276,6 +269,7 @@ namespace App
             this.dataGridViewTextBoxColumn1.HeaderText = "Id";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
             // 
             // Path
             // 
@@ -300,7 +294,7 @@ namespace App
             this.tabPage7.Controls.Add(this.dataGrid3);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(778, 289);
+            this.tabPage7.Size = new System.Drawing.Size(451, 289);
             this.tabPage7.TabIndex = 2;
             this.tabPage7.Text = "Записи о dll";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -313,9 +307,9 @@ namespace App
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dataGrid3.Location = new System.Drawing.Point(6, 5);
+            this.dataGrid3.Location = new System.Drawing.Point(3, 3);
             this.dataGrid3.Name = "dataGrid3";
-            this.dataGrid3.Size = new System.Drawing.Size(878, 317);
+            this.dataGrid3.Size = new System.Drawing.Size(769, 317);
             this.dataGrid3.TabIndex = 0;
             // 
             // Column6
@@ -323,6 +317,7 @@ namespace App
             this.Column6.HeaderText = "Id";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
             // 
             // Column3
             // 
@@ -349,9 +344,9 @@ namespace App
             this.comboBox1.Items.AddRange(new object[] {
             "БД",
             "ОЗУ"});
-            this.comboBox1.Location = new System.Drawing.Point(16, 11);
+            this.comboBox1.Location = new System.Drawing.Point(44, 18);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(220, 21);
+            this.comboBox1.Size = new System.Drawing.Size(109, 21);
             this.comboBox1.TabIndex = 8;
             // 
             // tabPage2
@@ -580,17 +575,18 @@ namespace App
             this.logtext.TabIndex = 2;
             this.logtext.Text = "";
             // 
-            // Client
+            // ApplicationUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(825, 641);
             this.Controls.Add(this.logtext);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Client";
+            this.Name = "ApplicationUI";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
@@ -618,7 +614,6 @@ namespace App
         public System.Windows.Forms.TabPage tabPage2;
         public System.Windows.Forms.TabPage tabPage3;
         public System.Windows.Forms.DataGridView dataGrid;
-        public System.Windows.Forms.ComboBox fileTypeCB;
         public System.Windows.Forms.Button loadFileBtn;
         public System.Windows.Forms.Button unloadFileBtn;
         public System.Windows.Forms.Button addRecordBtn;
@@ -635,18 +630,6 @@ namespace App
         public System.Windows.Forms.DataGridView dataGrid3;
         public System.Windows.Forms.RichTextBox logtext;
         public System.Windows.Forms.DataGridView dataGrid2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Path;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IsOpen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DllRecordDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         public System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TabPage tabPage10;
@@ -664,6 +647,19 @@ namespace App
         public System.Windows.Forms.Button button4;
         public System.Windows.Forms.Button button3;
         public System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsOpen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DllRecordDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Path;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        public System.Windows.Forms.TextBox textBox4;
     }
 }
 
