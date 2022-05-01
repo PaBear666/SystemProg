@@ -59,73 +59,61 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionDllRecord.cs">
+    <Compile Include="ActionModals\ActionDllRecord.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ActionDllRecord.Designer.cs">
+    <Compile Include="ActionModals\ActionDllRecord.Designer.cs">
       <DependentUpon>ActionDllRecord.cs</DependentUpon>
     </Compile>
-    <Compile Include="ActionFileRecord.cs">
+    <Compile Include="ActionModals\ActionFileRecord.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ActionFileRecord.Designer.cs">
+    <Compile Include="ActionModals\ActionFileRecord.Designer.cs">
       <DependentUpon>ActionFileRecord.cs</DependentUpon>
     </Compile>
-    <Compile Include="ActionResource.cs">
+    <Compile Include="ActionModals\ActionResource.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ActionResource.Designer.cs">
+    <Compile Include="ActionModals\ActionResource.Designer.cs">
       <DependentUpon>ActionResource.cs</DependentUpon>
     </Compile>
-    <Compile Include="CsharpDesign.cs" />
-    <Compile Include="Entities\DllRecord.cs" />
-    <Compile Include="Entities\FileRecord.cs" />
-    <Compile Include="Exceptions\WrongFormatException.cs" />
-    <Compile Include="Infrastructure\Context.cs" />
     <Compile Include="Models\Abstractions\ILowLevelModel.cs" />
     <Compile Include="Models\Abstractions\IFileModel.cs" />
     <Compile Include="Models\AnalyzerModel.cs" />
-    <Compile Include="Client.cs">
+    <Compile Include="ApplicationUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Client.Designer.cs">
-      <DependentUpon>Client.cs</DependentUpon>
+    <Compile Include="ApplicationUI.Designer.cs">
+      <DependentUpon>ApplicationUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\Abstractions\IAnalyzerModel.cs" />
     <Compile Include="Models\LowLevelModel.cs" />
-    <Compile Include="FileActions.cs" />
-    <Compile Include="Infrastructure\AnalyzerResult.cs" />
-    <Compile Include="Infrastructure\Analyzer.cs" />
-    <Compile Include="Infrastructure\ILogger.cs" />
-    <Compile Include="Infrastructure\Logger.cs" />
+    <Compile Include="ActionModals\FileActions.cs" />
     <Compile Include="Presenters\ActionsModals\ActionModalPresenterDllRecord.cs" />
     <Compile Include="Presenters\ActionsModals\ActionModalPresenterFileRecord.cs" />
     <Compile Include="Presenters\ActionsModals\ActionModalPresenterResource.cs" />
-    <Compile Include="Presenters\ClientPresenter.cs" />
-    <Compile Include="Presenters\ClientPresenterAnalyzer.cs" />
+    <Compile Include="Presenters\MainPresenter.cs" />
+    <Compile Include="Presenters\AnalyzerPresenter.cs" />
     <Compile Include="Presenters\ClientPresenterFiles\ClientPresenterFile.cs" />
     <Compile Include="Presenters\ClientPresenterFiles\ClientPresenterFileDllRecord.cs" />
     <Compile Include="Presenters\ClientPresenterFiles\ClientPresenterFileFileRecord.cs" />
     <Compile Include="Presenters\ClientPresenterFiles\ClientPresenterFileResource.cs" />
-    <Compile Include="Presenters\ClientPresenterLowLevel.cs" />
-    <Compile Include="Entities\Resource.cs" />
+    <Compile Include="Presenters\LowLevelPresenter.cs" />
     <Compile Include="Presenters\ActionsModals\IActionModalPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\PlainTextProvider.cs" />
-    <Compile Include="Providers\CSVProvider.cs" />
-    <EmbeddedResource Include="ActionDllRecord.resx">
+    <EmbeddedResource Include="ActionModals\ActionDllRecord.resx">
       <DependentUpon>ActionDllRecord.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ActionFileRecord.resx">
+    <EmbeddedResource Include="ActionModals\ActionFileRecord.resx">
       <DependentUpon>ActionFileRecord.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ActionResource.resx">
+    <EmbeddedResource Include="ActionModals\ActionResource.resx">
       <DependentUpon>ActionResource.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client.resx">
-      <DependentUpon>Client.cs</DependentUpon>
+    <EmbeddedResource Include="ApplicationUI.resx">
+      <DependentUpon>ApplicationUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -152,8 +140,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{18fb8c86-5146-429e-a1b5-5861b381edc4}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{5f49ae10-df01-4e2b-9ba5-4e4e36977dbf}</Project>
+      <Project>{5F49AE10-DF01-4E2B-9BA5-4E4E36977DBF}</Project>
       <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\LowLevelDivisionFunction\LowLevelFunction.csproj">

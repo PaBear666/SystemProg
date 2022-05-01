@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.Exceptions
+namespace BLL.Exceptions
 {
-    class WrongFormatException : Exception
+    public class WrongFormatException : Exception
     {
     }
 }

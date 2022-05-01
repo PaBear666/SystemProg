@@ -2,7 +2,7 @@
 using System.Text;
 using System.Windows.Forms;
 
-namespace App.Infrastructure
+namespace BLL.Logger
 {
     public class Logger : ILogger
     {

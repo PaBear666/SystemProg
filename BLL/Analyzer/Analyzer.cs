@@ -1,11 +1,9 @@
 ﻿using System;
 using System.CodeDom.Compiler;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
-namespace App.Infrastructure.Analyzer
+namespace BLL.Analyzer
 {
     public class Analyzer
     {

@@ -1,15 +1,14 @@
-﻿using App.Controllers.Abstractions;
-using DAL.Entities;
+﻿using DAL.Entities;
 using System.Collections.Generic;
 using System;
 using DAL.Providers.Abstractions;
 using System.Linq;
-using App.Infrastructure;
 using DAL.Repositories;
 using DAL.Exceptions;
-using App.Entities;
+using BLL.Logger;
+using App.Models.Abstractions;
 
-namespace App.Controllers
+namespace App.Models
 {
     internal class FileModel<T> : IFileModel<T>
         where T : class, IEntity

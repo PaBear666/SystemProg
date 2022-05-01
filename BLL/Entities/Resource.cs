@@ -1,9 +1,8 @@
 ﻿using DAL.Entities;
-using App.Providers;
 using DAL.Providers.Abstractions;
 using System;
 
-namespace App.Entities
+namespace BLL.Entities
 {
     public class Resource : IEntity<Resource>
     {

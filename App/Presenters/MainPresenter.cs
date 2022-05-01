@@ -1,26 +1,27 @@
-﻿using App.Controllers;
-using App.Infrastructure;
+﻿using App.Models;
 using App.Presenters;
+using BLL.Entities;
+using BLL.Logger;
 using DAL.Repositories;
 using System.Windows.Forms;
 
-namespace App.Entities
+namespace App.Presenters
 {
-    public class ClientPresenter
+    public class MainPresenter
     {
-        private readonly Client _client;
+        private readonly ApplicationUI _client;
         private readonly ILogger _logger;
         private  ClientPresenterFile _clientPresenterFile;
-        private  ClientPresenterLowLevel _lowLevelPresenter;
-        private  ClientPresenterAnalyzer _analyzerPresenter;
+        private  LowLevelPresenter _lowLevelPresenter;
+        private  AnalyzerPresenter _analyzerPresenter;
 
-        public ClientPresenter(Client client)
+        public MainPresenter(ApplicationUI client)
         {
             _client = client;
             _logger = new Logger(_client.logtext);
             _clientPresenterFile = new ClientPresenterFileResource(_client, new FileModel<Resource>(_logger), new FileRepository<Resource>());
-            _analyzerPresenter = new ClientPresenterAnalyzer(_client, new AnalyzerModel(_logger));
-            _lowLevelPresenter = new ClientPresenterLowLevel(_client, new LowLevelModel(), _logger);
+            _analyzerPresenter = new AnalyzerPresenter(_client, new AnalyzerModel(_logger));
+            _lowLevelPresenter = new LowLevelPresenter(_client, new LowLevelModel(), _logger);
 
             _client.tabControl2.Selected += TabControl2_Selected;
             Application.Run(_client);

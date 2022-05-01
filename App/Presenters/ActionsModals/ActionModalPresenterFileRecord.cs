@@ -1,4 +1,4 @@
-﻿using App.Entities;
+﻿using BLL.Entities;
 using System;
 using System.Windows.Forms;
 

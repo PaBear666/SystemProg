@@ -1,7 +1,6 @@
-﻿using App.Controllers.Abstractions;
-using App.Entities;
-using App.Infrastructure;
-using App.Providers;
+﻿ using App.Models.Abstractions;
+using BLL.Entities;
+using BLL.Providers;
 using DAL.Repositories;
 using System;
 using System.Collections.Generic;
@@ -12,7 +11,7 @@ namespace App.Presenters
     public class ClientPresenterFileResource : ClientPresenterFile<Resource>
     {
         public ClientPresenterFileResource(
-            Client client,
+            ApplicationUI client,
             IFileModel<Resource> fileModel,
             IRepository<Resource> repository) : 
             base(client,

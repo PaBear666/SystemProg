@@ -1,8 +1,6 @@
-﻿using App.Controllers;
-using App.Controllers.Abstractions;
-using App.Entities;
-using App.Infrastructure;
-using App.Providers;
+﻿using App.Models;
+using BLL.Entities;
+using BLL.Providers;
 using DAL.Repositories;
 using System;
 using System.Collections.Generic;
@@ -15,7 +13,7 @@ namespace App.Presenters
     class ClientPresenterFileFileRecord : ClientPresenterFile<FileRecord>
     {
 
-        public ClientPresenterFileFileRecord(Client client, FileModel<FileRecord> fileModel, IRepository<FileRecord> repository) :
+        public ClientPresenterFileFileRecord(ApplicationUI client, FileModel<FileRecord> fileModel, IRepository<FileRecord> repository) :
             base(client,
                 fileModel,
                 (m, r) => new ActionModalPresenterFileRecord(m, r),

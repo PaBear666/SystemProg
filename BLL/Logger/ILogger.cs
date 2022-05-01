@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace App.Infrastructure
+namespace BLL.Logger
 {
     public interface ILogger
     {

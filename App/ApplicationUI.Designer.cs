@@ -1,7 +1,7 @@
 ﻿
 namespace App
 {
-    partial class Client
+    partial class ApplicationUI
     {
         /// <summary>
         /// Required designer variable.
@@ -70,16 +70,16 @@ namespace App
             this.inputVS = new System.Windows.Forms.RichTextBox();
             this.outputVS = new System.Windows.Forms.RichTextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.logtext = new System.Windows.Forms.RichTextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.logtext = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -432,6 +432,7 @@ namespace App
             // 
             this.ifTextBox.Location = new System.Drawing.Point(297, 46);
             this.ifTextBox.Name = "ifTextBox";
+            this.ifTextBox.ReadOnly = true;
             this.ifTextBox.Size = new System.Drawing.Size(100, 20);
             this.ifTextBox.TabIndex = 1;
             // 
@@ -493,73 +494,14 @@ namespace App
             this.tabPage3.Text = "Низкий уровень";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // logtext
+            // label6
             // 
-            this.logtext.BackColor = System.Drawing.SystemColors.InfoText;
-            this.logtext.ForeColor = System.Drawing.SystemColors.Info;
-            this.logtext.Location = new System.Drawing.Point(16, 491);
-            this.logtext.Name = "logtext";
-            this.logtext.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.logtext.Size = new System.Drawing.Size(798, 138);
-            this.logtext.TabIndex = 2;
-            this.logtext.Text = "";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(26, 22);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(286, 74);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Целочисленное деление";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(26, 123);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(286, 74);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Сравнить";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(26, 226);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(286, 74);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Побитовое И";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(427, 50);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(276, 20);
-            this.textBox1.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(427, 101);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(276, 20);
-            this.textBox2.TabIndex = 4;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(427, 254);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(276, 20);
-            this.textBox3.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(427, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Первый операнд";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(427, 226);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(104, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Результат операнд";
             // 
             // label5
             // 
@@ -570,14 +512,73 @@ namespace App
             this.label5.TabIndex = 7;
             this.label5.Text = "Второй операнд";
             // 
-            // label6
+            // label1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(427, 226);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Результат операнд";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(427, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Первый операнд";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(427, 254);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(276, 20);
+            this.textBox3.TabIndex = 5;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(427, 101);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(276, 20);
+            this.textBox2.TabIndex = 4;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(427, 50);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(276, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(26, 226);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(286, 74);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "Побитовое И";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(26, 123);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(286, 74);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "Сравнить";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(26, 22);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(286, 74);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Целочисленное деление";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // logtext
+            // 
+            this.logtext.BackColor = System.Drawing.SystemColors.InfoText;
+            this.logtext.ForeColor = System.Drawing.SystemColors.Info;
+            this.logtext.Location = new System.Drawing.Point(16, 491);
+            this.logtext.Name = "logtext";
+            this.logtext.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.logtext.Size = new System.Drawing.Size(798, 138);
+            this.logtext.TabIndex = 2;
+            this.logtext.Text = "";
             // 
             // Client
             // 

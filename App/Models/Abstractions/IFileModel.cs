@@ -1,11 +1,10 @@
-﻿using App.Entities;
-using DAL.Entities;
+﻿using DAL.Entities;
 using DAL.Providers.Abstractions;
 using DAL.Repositories;
 using System;
 using System.Collections.Generic;
 
-namespace App.Controllers.Abstractions
+namespace App.Models.Abstractions
 {
     public interface IFileModel<T> 
         where T : class,IEntity

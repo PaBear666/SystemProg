@@ -1,7 +1,6 @@
-﻿using App.Infrastructure;
-using System.Windows.Forms;
+﻿using BLL.Analyzer;
 
-namespace App.Controllers.Abstractions
+namespace App.Models.Abstractions
 {
     public interface IAnalyzerModel
     {

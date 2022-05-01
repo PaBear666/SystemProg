@@ -1,4 +1,4 @@
-﻿namespace App
+﻿namespace BLL.Analyzer
 {
     public enum CsharpDesign
     {

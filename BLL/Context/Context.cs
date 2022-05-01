@@ -1,8 +1,7 @@
-﻿using App.Entities;
-using DAL.Entities;
+﻿using BLL.Entities;
 using System.Data.Entity;
 
-namespace App.Infrastructure
+namespace BLL.Infrastructure
 {
     public class Context : DbContext
     {

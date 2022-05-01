@@ -3,11 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App", "App\App.csproj", "{2A7A9810-7A4C-4B55-9F12-5F3F5A26BB0C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "App\Application.csproj", "{2A7A9810-7A4C-4B55-9F12-5F3F5A26BB0C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{18FB8C86-5146-429E-A1B5-5861B381EDC4} = {18FB8C86-5146-429E-A1B5-5861B381EDC4}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{5F49AE10-DF01-4E2B-9BA5-4E4E36977DBF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LowLevelFunction", "LowLevelDivisionFunction\LowLevelFunction.csproj", "{1D4D461D-89D5-4F33-A2D9-39D85989FC9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{18FB8C86-5146-429E-A1B5-5861B381EDC4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5F49AE10-DF01-4E2B-9BA5-4E4E36977DBF} = {5F49AE10-DF01-4E2B-9BA5-4E4E36977DBF}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +35,10 @@ Global
 		{1D4D461D-89D5-4F33-A2D9-39D85989FC9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D4D461D-89D5-4F33-A2D9-39D85989FC9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D4D461D-89D5-4F33-A2D9-39D85989FC9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18FB8C86-5146-429E-A1B5-5861B381EDC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18FB8C86-5146-429E-A1B5-5861B381EDC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18FB8C86-5146-429E-A1B5-5861B381EDC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18FB8C86-5146-429E-A1B5-5861B381EDC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,5 @@
-﻿using App.Controllers.Abstractions;
-using App.Infrastructure;
+﻿using App.Models.Abstractions;
+using BLL.Infrastructure;
 using DAL.Entities;
 using DAL.Repositories;
 using System;
@@ -13,12 +13,12 @@ namespace App.Presenters
     {
         protected IFileModel<T> _fileModel;
         protected string _fileExtension;
-        protected readonly Client _client;
+        protected readonly ApplicationUI _client;
         protected DataGridView _dataGrid;
         protected Func<ModalAction,T,IActionModalPresenter<T>> _actionModal;
 
         public ClientPresenterFile(
-            Client client,
+            ApplicationUI client,
             IFileModel<T> fileModel,
             Func<ModalAction, T, IActionModalPresenter<T>> actionModal,
             DataGridView dataGrid,

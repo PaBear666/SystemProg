@@ -1,11 +1,11 @@
-﻿using App.Entities;
+﻿using BLL.Entities;
 using DAL.Providers.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 
-namespace App.Providers
+namespace BLL.Providers
 {
-    class PlainTextProvider: IFileProvider<DllRecord>, IFileProvider<Resource>
+    public class PlainTextProvider: IFileProvider<DllRecord>, IFileProvider<Resource>
     {
         public string PathExtension => "txt";
 

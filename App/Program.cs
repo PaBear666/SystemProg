@@ -1,8 +1,5 @@
-﻿using App.Entities;
+﻿using App.Presenters;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace App
@@ -17,7 +14,7 @@ namespace App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            new ClientPresenter(new Client());
+            new MainPresenter(new ApplicationUI());
         }
     }
 }

@@ -1,19 +1,16 @@
-﻿using App.Controllers.Abstractions;
+﻿using App.Models.Abstractions;
+using BLL.Analyzer;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace App.Entities
+namespace App.Presenters
 {
-    class ClientPresenterAnalyzer : IDisposable
+    class AnalyzerPresenter : IDisposable
     {
-        readonly Client _client;
+        readonly ApplicationUI _client;
         readonly IAnalyzerModel _analyzer;
         TextBox _textBox;
-        public ClientPresenterAnalyzer(Client client, IAnalyzerModel analyzer)
+        public AnalyzerPresenter(ApplicationUI client, IAnalyzerModel analyzer)
         {
             _client = client;
             _analyzer = analyzer;

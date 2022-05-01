@@ -1,9 +1,8 @@
-﻿using App.Controllers.Abstractions;
-using App.Infrastructure;
-using App.Infrastructure.Analyzer;
-using System.Windows.Forms;
+﻿using App.Models.Abstractions;
+using BLL.Analyzer;
+using BLL.Logger;
 
-namespace App.Controllers
+namespace App.Models
 {
     internal class AnalyzerModel : IAnalyzerModel
     {

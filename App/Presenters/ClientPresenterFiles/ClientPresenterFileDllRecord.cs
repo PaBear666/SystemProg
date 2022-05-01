@@ -1,8 +1,6 @@
-﻿using App.Controllers;
-using App.Controllers.Abstractions;
-using App.Entities;
-using App.Infrastructure;
-using App.Providers;
+﻿using App.Models;
+using BLL.Entities;
+using BLL.Providers;
 using DAL.Repositories;
 using System;
 using System.Collections.Generic;
@@ -15,7 +13,7 @@ namespace App.Presenters
     class ClientPresenterFileDllRecord : ClientPresenterFile<DllRecord>
     {
 
-        public ClientPresenterFileDllRecord(Client client, FileModel<DllRecord> fileModel, IRepository<DllRecord> repository)
+        public ClientPresenterFileDllRecord(ApplicationUI client, FileModel<DllRecord> fileModel, IRepository<DllRecord> repository)
             :base(client,
                 fileModel,
                 (m, r) => new ActionModalPresenterDllRecord(m, r),

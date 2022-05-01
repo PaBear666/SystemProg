@@ -1,4 +1,4 @@
-﻿namespace App.Infrastructure
+﻿namespace BLL.Analyzer
 {
     public class AnalyzerResult
     {

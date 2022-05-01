@@ -1,9 +1,9 @@
-﻿using DAL.Providers.Abstractions;
+﻿using BLL.Entities;
+using DAL.Providers.Abstractions;
 using System.Collections.Generic;
 using System.IO;
-using App.Entities;
 
-namespace App.Providers
+namespace BLL.Providers
 {
     public class CSVProvider : IFileProvider<FileRecord>
     {

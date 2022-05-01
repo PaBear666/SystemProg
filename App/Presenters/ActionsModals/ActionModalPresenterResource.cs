@@ -1,8 +1,9 @@
 ﻿using App.Presenters;
+using BLL.Entities;
 using System;
 using System.Windows.Forms;
 
-namespace App.Entities
+namespace App.Presenters
 {
     class ActionModalPresenterResource : IActionModalPresenter<Resource>
     {

@@ -1,9 +1,9 @@
-﻿using App.Controllers.Abstractions;
+﻿using App.Models.Abstractions;
 using LowLevelDivisionFunction;
 using System;
 using System.IO;
 using System.Reflection;
-namespace App.Controllers
+namespace App.Models
 {
     internal class LowLevelModel : ILowLevelModel
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace App.Controllers.Abstractions
+namespace App.Models.Abstractions
 {
     public interface ILowLevelModel
     {

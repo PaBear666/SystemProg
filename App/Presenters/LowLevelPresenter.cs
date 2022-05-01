@@ -1,17 +1,17 @@
-﻿using App.Controllers.Abstractions;
-using App.Exceptions;
-using App.Infrastructure;
+﻿using App.Models.Abstractions;
+using BLL.Exceptions;
+using BLL.Logger;
 using System;
 
-namespace App.Entities
+namespace App.Presenters
 {
-    class ClientPresenterLowLevel : IDisposable
+    class LowLevelPresenter : IDisposable
     {
-        private readonly Client _client;
+        private readonly ApplicationUI _client;
         private readonly ILowLevelModel _lowLevelModel;
         private readonly ILogger _logger;
 
-        public ClientPresenterLowLevel(Client client,ILowLevelModel lowLevelModel, ILogger logger)
+        public LowLevelPresenter(ApplicationUI client,ILowLevelModel lowLevelModel, ILogger logger)
         {
             _logger = logger;
             _client = client;
