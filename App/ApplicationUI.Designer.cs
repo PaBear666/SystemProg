@@ -122,7 +122,7 @@ namespace App
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(798, 461);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Работа с файлами";
+            this.tabPage1.Text = "Работа с Файлами";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // textBox4
@@ -361,7 +361,7 @@ namespace App
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(798, 461);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Анализаторы";
+            this.tabPage2.Text = "Работа с анализатором";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label2
@@ -452,6 +452,7 @@ namespace App
             // inputVS
             // 
             this.inputVS.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.inputVS.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.inputVS.ForeColor = System.Drawing.SystemColors.ControlText;
             this.inputVS.Location = new System.Drawing.Point(37, 174);
             this.inputVS.Name = "inputVS";
@@ -486,7 +487,7 @@ namespace App
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(798, 461);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Низкий уровень";
+            this.tabPage3.Text = "Работа с низким уровнем";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // label6

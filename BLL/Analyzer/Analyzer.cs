@@ -58,7 +58,7 @@ namespace BLL.Analyzer
                             }
                         }
                         process.Close();
-                        string result = int.Parse(value) > 0 ? "Да" : "Нет";
+                        string result = int.Parse(value) > 1 ? "Да" : "Нет";
                         Complited(result);       
                         return;
                     }
