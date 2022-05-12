@@ -13,11 +13,11 @@ namespace App.Presenters
     class ClientPresenterFileDllRecord : ClientPresenterFile<DllRecord>
     {
 
-        public ClientPresenterFileDllRecord(ApplicationUI client, FileModel<DllRecord> fileModel, IRepository<DllRecord> repository)
+        public ClientPresenterFileDllRecord(IView client, FileModel<DllRecord> fileModel, IRepository<DllRecord> repository)
             :base(client,
                 fileModel,
                 (m, r) => new ActionModalPresenterDllRecord(m, r),
-                client.dataGrid3,
+                client.DataGrid3,
                 repository)
         {
 
@@ -26,7 +26,7 @@ namespace App.Presenters
         public override void SetFileProvider()
         {
             _fileExtension = _fileModel.SetFileProvider(new PlainTextProvider());
-            _client.textBox4.Text = "Plain Text";
+            _client.TextBox4.Text = "Plain Text";
         }
 
         public override void UpdateTable(object sender, IList<DllRecord> resources)

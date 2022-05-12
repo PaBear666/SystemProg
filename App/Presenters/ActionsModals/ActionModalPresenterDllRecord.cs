@@ -1,4 +1,5 @@
-﻿using BLL.Entities;
+﻿using App.ActionModals;
+using BLL.Entities;
 using System;
 using System.Windows.Forms;
 
@@ -7,7 +8,7 @@ namespace App.Presenters
     class ActionModalPresenterDllRecord : IActionModalPresenter<DllRecord>
     {
         DllRecord _record;
-        readonly ActionDllRecord _modal;
+        readonly IViewActionDll _modal;
         public ActionModalPresenterDllRecord(ModalAction action, DllRecord record)
         {
             _modal = new ActionDllRecord();
@@ -31,26 +32,26 @@ namespace App.Presenters
 
         private void InitFields(string name, string version, DateTime lastEditDate)
         {
-            _modal.textBox1.Text = name;
+            _modal.TextBox1.Text = name;
 
-            _modal.textBox2.Text = version;
+            _modal.TextBox2.Text = version;
 
-            _modal.dateTimePicker1.Value = lastEditDate;
+            _modal.DateTimePicker1.Value = lastEditDate;
         }
 
         private void Init()
         {
-            _modal.okBtn.Click += new System.EventHandler(this.OKBtn_Click);
-            _modal.cancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
-            _modal.textBox1.TextChanged += new System.EventHandler(this.OKBtnEnableEvent);
-            _modal.textBox2.TextChanged += new System.EventHandler(this.OKBtnEnableEvent);
+            _modal.OkBtn.Click += new System.EventHandler(this.OKBtn_Click);
+            _modal.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
+            _modal.TextBox1.TextChanged += new System.EventHandler(this.OKBtnEnableEvent);
+            _modal.TextBox2.TextChanged += new System.EventHandler(this.OKBtnEnableEvent);
         }
 
         private void OKBtnEnableEvent(object sender, EventArgs e)
         {
-            _modal.okBtn.Enabled = !string.IsNullOrWhiteSpace(_modal.textBox1.Text)
-                && !string.IsNullOrWhiteSpace(_modal.textBox2.Text)
-                && !string.IsNullOrWhiteSpace(_modal.textBox2.Text);
+            _modal.OkBtn.Enabled = !string.IsNullOrWhiteSpace(_modal.TextBox1.Text)
+                && !string.IsNullOrWhiteSpace(_modal.TextBox2.Text)
+                && !string.IsNullOrWhiteSpace(_modal.TextBox2.Text);
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)
@@ -61,9 +62,9 @@ namespace App.Presenters
         private void OKBtn_Click(object sender, EventArgs e)
         {
             _record = new DllRecord(
-               _modal.textBox1.Text,
-               _modal.textBox2.Text,
-               _modal.dateTimePicker1.Value);
+               _modal.TextBox1.Text,
+               _modal.TextBox2.Text,
+               _modal.DateTimePicker1.Value);
             _modal.DialogResult = DialogResult.OK;
         }
 

@@ -13,12 +13,12 @@ namespace App.Presenters
     {
         protected IFileModel<T> _fileModel;
         protected string _fileExtension;
-        protected readonly ApplicationUI _client;
+        protected readonly IView _client;
         protected DataGridView _dataGrid;
         protected Func<ModalAction,T,IActionModalPresenter<T>> _actionModal;
 
         public ClientPresenterFile(
-            ApplicationUI client,
+            IView client,
             IFileModel<T> fileModel,
             Func<ModalAction, T, IActionModalPresenter<T>> actionModal,
             DataGridView dataGrid,
@@ -35,15 +35,15 @@ namespace App.Presenters
 
         public void Init()
         {
-            _client.loadFileBtn.Click += new EventHandler(UnloadFileBtn_Click);
-            _client.unloadFileBtn.Click += new EventHandler(LoadFileBtn_Click);
-            _client.addRecordBtn.Click += new EventHandler(AddRecordBtn_Click);
-            _client.updateRecordBtn.Click += new EventHandler(UpdateRecordBtn_Click);
-            _client.deleteRecordBtn.Click += new EventHandler(DeleteRecordBtn_Click);
+            _client.LoadFileBtn.Click += new EventHandler(UnloadFileBtn_Click);
+            _client.UnloadFileBtn.Click += new EventHandler(LoadFileBtn_Click);
+            _client.AddRecordBtn.Click += new EventHandler(AddRecordBtn_Click);
+            _client.UpdateRecordBtn.Click += new EventHandler(UpdateRecordBtn_Click);
+            _client.DeleteRecordBtn.Click += new EventHandler(DeleteRecordBtn_Click);
             _dataGrid.SelectionChanged += new EventHandler(SelectedRowEvent);
-            _client.comboBox1.SelectedValueChanged += RepositoryType_SelectedIndexChanged;
+            _client.ComboBox1.SelectedValueChanged += RepositoryType_SelectedIndexChanged;
             _fileModel.UpdateResourceHandler += UpdateTable;
-            _client.comboBox1.SelectedItem = "ОЗУ";
+            _client.ComboBox1.SelectedItem = "ОЗУ";
         }
 
         public void AddRecordBtn_Click(object sender, EventArgs e)
@@ -76,7 +76,7 @@ namespace App.Presenters
 
         public void RepositoryType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var fileProvderStr = _client.comboBox1.SelectedItem as string;
+            var fileProvderStr = _client.ComboBox1.SelectedItem as string;
             switch (fileProvderStr)
             {
                 case "ОЗУ":
@@ -118,28 +118,28 @@ namespace App.Presenters
         public void SelectedRowEvent(object sender, EventArgs e)
         {
             var selectedOne = _dataGrid.SelectedRows.Count == 1;
-            _client.deleteRecordBtn.Enabled = selectedOne;
-            _client.updateRecordBtn.Enabled = selectedOne;
+            _client.DeleteRecordBtn.Enabled = selectedOne;
+            _client.UpdateRecordBtn.Enabled = selectedOne;
         }
 
         abstract public void UpdateTable(object sender, IList<T> resources);
 
         public void EnableBtnWorkWithFile_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _client.loadFileBtn.Enabled = true;
-            _client.unloadFileBtn.Enabled = true;
+            _client.LoadFileBtn.Enabled = true;
+            _client.UnloadFileBtn.Enabled = true;
         }
 
         public override void Dispose()
         {
-            _client.loadFileBtn.Click -= new EventHandler(UnloadFileBtn_Click);
-            _client.unloadFileBtn.Click -= new EventHandler(LoadFileBtn_Click);
-            _client.addRecordBtn.Click -= new EventHandler(AddRecordBtn_Click);
-            _client.updateRecordBtn.Click -= new EventHandler(UpdateRecordBtn_Click);
-            _client.deleteRecordBtn.Click -= new EventHandler(DeleteRecordBtn_Click);
+            _client.LoadFileBtn.Click -= new EventHandler(UnloadFileBtn_Click);
+            _client.UnloadFileBtn.Click -= new EventHandler(LoadFileBtn_Click);
+            _client.AddRecordBtn.Click -= new EventHandler(AddRecordBtn_Click);
+            _client.UpdateRecordBtn.Click -= new EventHandler(UpdateRecordBtn_Click);
+            _client.DeleteRecordBtn.Click -= new EventHandler(DeleteRecordBtn_Click);
             _dataGrid.SelectionChanged -= new EventHandler(SelectedRowEvent);
-            _client.comboBox1.SelectedValueChanged -= RepositoryType_SelectedIndexChanged;
-            _client.comboBox1.SelectedIndexChanged -= new EventHandler(RepositoryType_SelectedIndexChanged);
+            _client.ComboBox1.SelectedValueChanged -= RepositoryType_SelectedIndexChanged;
+            _client.ComboBox1.SelectedIndexChanged -= new EventHandler(RepositoryType_SelectedIndexChanged);
             _fileModel.UpdateResourceHandler -= UpdateTable;
         }
     }

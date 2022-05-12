@@ -9,22 +9,21 @@ namespace App.Presenters
 {
     public class MainPresenter
     {
-        private readonly ApplicationUI _client;
+        private readonly IView _client;
         private readonly ILogger _logger;
         private  ClientPresenterFile _clientPresenterFile;
         private  LowLevelPresenter _lowLevelPresenter;
         private  AnalyzerPresenter _analyzerPresenter;
 
-        public MainPresenter(ApplicationUI client)
+        public MainPresenter(IView client)
         {
             _client = client;
-            _logger = new Logger(_client.logtext);
+            _logger = new Logger(_client.Logtext);
             _clientPresenterFile = new ClientPresenterFileResource(_client, new FileModel<Resource>(_logger), new FileRepository<Resource>());
             _analyzerPresenter = new AnalyzerPresenter(_client, new AnalyzerModel(_logger));
             _lowLevelPresenter = new LowLevelPresenter(_client, new LowLevelModel(), _logger);
 
-            _client.tabControl2.Selected += TabControl2_Selected;
-            Application.Run(_client);
+            _client.TabControl2.Selected += TabControl2_Selected;
         }
         private void TabControl2_Selected(object sender, TabControlEventArgs e)
         {
@@ -41,7 +40,7 @@ namespace App.Presenters
                     _clientPresenterFile = new ClientPresenterFileFileRecord(_client, new FileModel<FileRecord>(_logger), new FileRepository<FileRecord>());
                     break;
             }
-            _client.comboBox1.SelectedIndex = 1;
+            _client.ComboBox1.SelectedIndex = 1;
         }
     }
 }

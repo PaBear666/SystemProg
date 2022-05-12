@@ -14,7 +14,9 @@ namespace App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            new MainPresenter(new ApplicationUI());
+            var ap = new ApplicationUI();
+            new MainPresenter(ap);
+            Application.Run(ap);
         }
     }
 }

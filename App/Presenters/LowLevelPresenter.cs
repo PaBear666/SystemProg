@@ -7,11 +7,11 @@ namespace App.Presenters
 {
     class LowLevelPresenter : IDisposable
     {
-        private readonly ApplicationUI _client;
+        private readonly IView _client;
         private readonly ILowLevelModel _lowLevelModel;
         private readonly ILogger _logger;
 
-        public LowLevelPresenter(ApplicationUI client,ILowLevelModel lowLevelModel, ILogger logger)
+        public LowLevelPresenter(IView client,ILowLevelModel lowLevelModel, ILogger logger)
         {
             _logger = logger;
             _client = client;
@@ -21,19 +21,19 @@ namespace App.Presenters
 
         private void Init()
         {
-            _client.button2.Click += Div;
-            _client.button3.Click += Compare;
-            _client.button4.Click += BitAnd;
+            _client.Button2.Click += Div;
+            _client.Button3.Click += Compare;
+            _client.Button4.Click += BitAnd;
         }
 
         private void BitAnd(object sender, EventArgs e)
         {
             try
             {
-                int a = int.Parse(_client.textBox1.Text);
-                int b = int.Parse(_client.textBox2.Text);
+                int a = int.Parse(_client.TextBox1.Text);
+                int b = int.Parse(_client.TextBox2.Text);
 
-                _client.textBox3.Text = _lowLevelModel.GetResultBitAnd(a, b).ToString();
+                _client.TextBox3.Text = _lowLevelModel.GetResultBitAnd(a, b).ToString();
 
             }
             catch (Exception)
@@ -46,10 +46,10 @@ namespace App.Presenters
         {
             try
             {
-                int a = int.Parse(_client.textBox1.Text);
-                int b = int.Parse(_client.textBox2.Text);
+                int a = int.Parse(_client.TextBox1.Text);
+                int b = int.Parse(_client.TextBox2.Text);
 
-                _client.textBox3.Text = _lowLevelModel.GetResultCompare(a, b).ToString();
+                _client.TextBox3.Text = _lowLevelModel.GetResultCompare(a, b).ToString();
 
             }
             catch(Exception)
@@ -63,10 +63,10 @@ namespace App.Presenters
         {
             try
             {
-                uint a = uint.Parse(_client.textBox1.Text);
-                uint b = uint.Parse(_client.textBox2.Text);
+                uint a = uint.Parse(_client.TextBox1.Text);
+                uint b = uint.Parse(_client.TextBox2.Text);
 
-                _client.textBox3.Text = _lowLevelModel.GetResultDivUn(a, b).ToString();
+                _client.TextBox3.Text = _lowLevelModel.GetResultDivUn(a, b).ToString();
 
             }
             catch (Exception)
@@ -77,9 +77,9 @@ namespace App.Presenters
 
         public void Dispose()
         {
-            _client.button2.Click -= Div;
-            _client.button3.Click -= Compare;
-            _client.button4.Click -= BitAnd;
+            _client.Button2.Click -= Div;
+            _client.Button3.Click -= Compare;
+            _client.Button4.Click -= BitAnd;
         }
     }
 }

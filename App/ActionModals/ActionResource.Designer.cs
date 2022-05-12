@@ -1,7 +1,10 @@
 ﻿
+using App.ActionModals;
+using System.Windows.Forms;
+
 namespace App
 {
-    partial class ActionResource
+    partial class ActionResource : IViewActionResource
     {
         /// <summary>
         /// Required designer variable.
@@ -32,11 +35,11 @@ namespace App
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.okBtn = new System.Windows.Forms.Button();
-            this.cancelBtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.OkBtn = new System.Windows.Forms.Button();
+            this.CancelBtn = new System.Windows.Forms.Button();
+            this.TextBox1 = new System.Windows.Forms.TextBox();
+            this.ComboBox1 = new System.Windows.Forms.ComboBox();
+            this.DateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -68,59 +71,59 @@ namespace App
             // 
             // okBtn
             // 
-            this.okBtn.Enabled = false;
-            this.okBtn.Location = new System.Drawing.Point(46, 178);
-            this.okBtn.Name = "okBtn";
-            this.okBtn.Size = new System.Drawing.Size(101, 23);
-            this.okBtn.TabIndex = 3;
-            this.okBtn.Text = "OK";
-            this.okBtn.UseVisualStyleBackColor = true;
+            this.OkBtn.Enabled = false;
+            this.OkBtn.Location = new System.Drawing.Point(46, 178);
+            this.OkBtn.Name = "okBtn";
+            this.OkBtn.Size = new System.Drawing.Size(101, 23);
+            this.OkBtn.TabIndex = 3;
+            this.OkBtn.Text = "OK";
+            this.OkBtn.UseVisualStyleBackColor = true;
             // 
             // cancelBtn
             // 
-            this.cancelBtn.Location = new System.Drawing.Point(213, 178);
-            this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(101, 23);
-            this.cancelBtn.TabIndex = 4;
-            this.cancelBtn.Text = "Отмена";
-            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.CancelBtn.Location = new System.Drawing.Point(213, 178);
+            this.CancelBtn.Name = "cancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(101, 23);
+            this.CancelBtn.TabIndex = 4;
+            this.CancelBtn.Text = "Отмена";
+            this.CancelBtn.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(128, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(127, 20);
-            this.textBox1.TabIndex = 5;
+            this.TextBox1.Location = new System.Drawing.Point(128, 21);
+            this.TextBox1.Name = "textBox1";
+            this.TextBox1.Size = new System.Drawing.Size(127, 20);
+            this.TextBox1.TabIndex = 5;
             // 
             // comboBox1
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBox1.FormattingEnabled = true;
+            this.ComboBox1.Items.AddRange(new object[] {
             "true",
             "false"});
-            this.comboBox1.Location = new System.Drawing.Point(128, 69);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(127, 21);
-            this.comboBox1.TabIndex = 8;
+            this.ComboBox1.Location = new System.Drawing.Point(128, 69);
+            this.ComboBox1.Name = "comboBox1";
+            this.ComboBox1.Size = new System.Drawing.Size(127, 21);
+            this.ComboBox1.TabIndex = 8;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(128, 120);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 9;
+            this.DateTimePicker1.Location = new System.Drawing.Point(128, 120);
+            this.DateTimePicker1.Name = "dateTimePicker1";
+            this.DateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.DateTimePicker1.TabIndex = 9;
             // 
             // ActionResource
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 226);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.cancelBtn);
-            this.Controls.Add(this.okBtn);
+            this.Controls.Add(this.DateTimePicker1);
+            this.Controls.Add(this.ComboBox1);
+            this.Controls.Add(this.TextBox1);
+            this.Controls.Add(this.CancelBtn);
+            this.Controls.Add(this.OkBtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -136,10 +139,16 @@ namespace App
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Button okBtn;
-        public System.Windows.Forms.Button cancelBtn;
-        public System.Windows.Forms.TextBox textBox1;
-        public System.Windows.Forms.ComboBox comboBox1;
-        public System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button okBtn;
+        private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+
+        public Button OkBtn { get => okBtn; set => okBtn = value; }
+        public Button CancelBtn { get => cancelBtn; set => cancelBtn = value; }
+        public TextBox TextBox1 { get => textBox1; set => textBox1 = value; }
+        public ComboBox ComboBox1 { get => comboBox1; set => comboBox1 = value; }
+        public DateTimePicker DateTimePicker1 { get => dateTimePicker1; set => dateTimePicker1 = value; }
     }
 }

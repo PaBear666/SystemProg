@@ -11,13 +11,13 @@ namespace App.Presenters
     public class ClientPresenterFileResource : ClientPresenterFile<Resource>
     {
         public ClientPresenterFileResource(
-            ApplicationUI client,
+            IView client,
             IFileModel<Resource> fileModel,
             IRepository<Resource> repository) : 
             base(client,
                 fileModel,
                 (m,r) => new ActionModalPresenterResource(m,r),
-                client.dataGrid,
+                client.DataGrid,
                 repository)
         {
 
@@ -26,7 +26,7 @@ namespace App.Presenters
         public override void SetFileProvider()
         {
             _fileExtension = _fileModel.SetFileProvider(new PlainTextProvider());
-            _client.textBox4.Text = "Plain Text";
+            _client.TextBox4.Text = "Plain Text";
         }
 
         public override void UpdateTable(object sender, IList<Resource> resources)

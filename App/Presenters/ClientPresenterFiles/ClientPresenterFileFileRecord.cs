@@ -13,11 +13,11 @@ namespace App.Presenters
     class ClientPresenterFileFileRecord : ClientPresenterFile<FileRecord>
     {
 
-        public ClientPresenterFileFileRecord(ApplicationUI client, FileModel<FileRecord> fileModel, IRepository<FileRecord> repository) :
+        public ClientPresenterFileFileRecord(IView client, FileModel<FileRecord> fileModel, IRepository<FileRecord> repository) :
             base(client,
                 fileModel,
                 (m, r) => new ActionModalPresenterFileRecord(m, r),
-                client.dataGrid2,
+                client.DataGrid2,
                 repository)
         {
 
@@ -26,7 +26,7 @@ namespace App.Presenters
         public override void SetFileProvider()
         {
             _fileExtension = _fileModel.SetFileProvider(new CSVProvider());
-            _client.textBox4.Text = "CSV";
+            _client.TextBox4.Text = "CSV";
         }
 
         public override void UpdateTable(object sender, IList<FileRecord> resources)
