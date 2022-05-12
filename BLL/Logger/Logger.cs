@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Text;
-using System.Windows.Forms;
 
 namespace BLL.Logger
 {
     public class Logger : ILogger
     {
-        readonly RichTextBox _textBox;
-        public Logger(RichTextBox richText)
+        readonly ILoggerContainer _textBox;
+        public Logger(ILoggerContainer richText)
         {
             _textBox = richText;
         } 
@@ -22,7 +21,7 @@ namespace BLL.Logger
             }
 
             stringBuilder.AppendLine($"Exception: {e}");
-            _textBox.Text += stringBuilder.ToString();
+            _textBox.AppendText(stringBuilder.ToString());
         }
     }
 }

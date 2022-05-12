@@ -1,4 +1,5 @@
-﻿using App.Models;
+﻿using App.Infrastructure;
+using App.Models;
 using App.Presenters;
 using BLL.Entities;
 using BLL.Logger;
@@ -18,7 +19,7 @@ namespace App.Presenters
         public MainPresenter(IView client)
         {
             _client = client;
-            _logger = new Logger(_client.Logtext);
+            _logger = new Logger(new FormLogContainer(_client.Logtext));
             _clientPresenterFile = new ClientPresenterFileResource(_client, new FileModel<Resource>(_logger), new FileRepository<Resource>());
             _analyzerPresenter = new AnalyzerPresenter(_client, new AnalyzerModel(_logger));
             _lowLevelPresenter = new LowLevelPresenter(_client, new LowLevelModel(), _logger);

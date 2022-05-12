@@ -61,6 +61,7 @@
     <Compile Include="Entities\Resource.cs" />
     <Compile Include="Exceptions\WrongFormatException.cs" />
     <Compile Include="Logger\ILogger.cs" />
+    <Compile Include="Logger\ILoggerContainer.cs" />
     <Compile Include="Logger\Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\CSVProvider.cs" />

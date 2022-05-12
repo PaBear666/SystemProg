@@ -81,6 +81,7 @@
     <Compile Include="ActionModals\IViewActionDll.cs" />
     <Compile Include="ActionModals\IViewActionFile.cs" />
     <Compile Include="ActionModals\IViewActionResource.cs" />
+    <Compile Include="Infrastructure\FormLogContainer.cs" />
     <Compile Include="Models\Abstractions\ILowLevelModel.cs" />
     <Compile Include="Models\Abstractions\IFileModel.cs" />
     <Compile Include="Models\AnalyzerModel.cs" />
