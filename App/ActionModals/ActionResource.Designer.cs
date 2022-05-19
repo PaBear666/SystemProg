@@ -35,11 +35,11 @@ namespace App
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.OkBtn = new System.Windows.Forms.Button();
-            this.CancelBtn = new System.Windows.Forms.Button();
-            this.TextBox1 = new System.Windows.Forms.TextBox();
-            this.ComboBox1 = new System.Windows.Forms.ComboBox();
-            this.DateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.okBtn = new System.Windows.Forms.Button();
+            this.cancelBtn = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -71,59 +71,59 @@ namespace App
             // 
             // okBtn
             // 
-            this.OkBtn.Enabled = false;
-            this.OkBtn.Location = new System.Drawing.Point(46, 178);
-            this.OkBtn.Name = "okBtn";
-            this.OkBtn.Size = new System.Drawing.Size(101, 23);
-            this.OkBtn.TabIndex = 3;
-            this.OkBtn.Text = "OK";
-            this.OkBtn.UseVisualStyleBackColor = true;
+            this.okBtn.Enabled = false;
+            this.okBtn.Location = new System.Drawing.Point(46, 178);
+            this.okBtn.Name = "okBtn";
+            this.okBtn.Size = new System.Drawing.Size(101, 23);
+            this.okBtn.TabIndex = 3;
+            this.okBtn.Text = "OK";
+            this.okBtn.UseVisualStyleBackColor = true;
             // 
             // cancelBtn
             // 
-            this.CancelBtn.Location = new System.Drawing.Point(213, 178);
-            this.CancelBtn.Name = "cancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(101, 23);
-            this.CancelBtn.TabIndex = 4;
-            this.CancelBtn.Text = "Отмена";
-            this.CancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Location = new System.Drawing.Point(213, 178);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(101, 23);
+            this.cancelBtn.TabIndex = 4;
+            this.cancelBtn.Text = "Отмена";
+            this.cancelBtn.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.TextBox1.Location = new System.Drawing.Point(128, 21);
-            this.TextBox1.Name = "textBox1";
-            this.TextBox1.Size = new System.Drawing.Size(127, 20);
-            this.TextBox1.TabIndex = 5;
+            this.textBox1.Location = new System.Drawing.Point(128, 21);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(127, 20);
+            this.textBox1.TabIndex = 5;
             // 
             // comboBox1
             // 
-            this.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboBox1.FormattingEnabled = true;
-            this.ComboBox1.Items.AddRange(new object[] {
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
             "true",
             "false"});
-            this.ComboBox1.Location = new System.Drawing.Point(128, 69);
-            this.ComboBox1.Name = "comboBox1";
-            this.ComboBox1.Size = new System.Drawing.Size(127, 21);
-            this.ComboBox1.TabIndex = 8;
+            this.comboBox1.Location = new System.Drawing.Point(128, 69);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(127, 21);
+            this.comboBox1.TabIndex = 8;
             // 
             // dateTimePicker1
             // 
-            this.DateTimePicker1.Location = new System.Drawing.Point(128, 120);
-            this.DateTimePicker1.Name = "dateTimePicker1";
-            this.DateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.DateTimePicker1.TabIndex = 9;
+            this.dateTimePicker1.Location = new System.Drawing.Point(128, 120);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 9;
             // 
             // ActionResource
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 226);
-            this.Controls.Add(this.DateTimePicker1);
-            this.Controls.Add(this.ComboBox1);
-            this.Controls.Add(this.TextBox1);
-            this.Controls.Add(this.CancelBtn);
-            this.Controls.Add(this.OkBtn);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.cancelBtn);
+            this.Controls.Add(this.okBtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
